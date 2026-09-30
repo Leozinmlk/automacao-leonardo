@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leonardo Moellecke | Automação de Processos, Dados e BI</title>
+  <meta name="description" content="Automação de processos, planilhas, relatórios, dados, dashboards e rotinas web. Soluções sob medida com Python, Excel, SQL, Power BI e RPA." />
+  <meta name="theme-color" content="#081a3a" />
+  <meta property="og:title" content="Leonardo Moellecke | Automação de Processos, Dados e BI" />
+  <meta property="og:description" content="Transformo rotinas manuais em processos automatizados, auditáveis e fáceis de operar." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root{--navy:#081a3a;--purple:#6f3fd3;--teal:#23c3b4;--ink:#151b2c;--muted:#697386;--bg:#f5f7fb;--card:#fff;--line:#e5e9f1;--shadow:0 18px 50px rgba(17,31,65,.10)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+    .hero{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--navy) 0%,#07142d 66%,#0b1e45 100%);color:#fff;padding:24px 0 84px}
+    .hero:before,.hero:after{content:"";position:absolute;border-radius:999px}.hero:before{width:310px;height:310px;right:-70px;top:22px;background:rgba(111,63,211,.38)}.hero:after{width:160px;height:160px;right:110px;top:30px;background:rgba(35,195,180,.20)}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;z-index:2}.brand{font-weight:800;letter-spacing:.02em}.brand small{display:block;font-size:11px;letter-spacing:.18em;font-weight:600;color:#a9b7d4;margin-top:2px}
+    .navlinks{display:flex;align-items:center;gap:18px;font-size:14px;color:#dce4f4}.navlinks a:hover{color:#fff}
+    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:64px;align-items:center;padding-top:72px;position:relative;z-index:1}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:#c7b4ff;margin-bottom:20px}.eyebrow:before{content:"";width:28px;height:2px;background:var(--teal)}
+    h1{font-size:clamp(42px,6vw,72px);line-height:.99;letter-spacing:-.045em;margin:0 0 24px;max-width:820px}.lead{font-size:clamp(17px,2vw,21px);max-width:760px;color:#c9d3e7;margin:0 0 30px}
+    .buttons{display:flex;flex-wrap:wrap;gap:12px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 20px;border-radius:14px;font-weight:800;font-size:14px;transition:.2s ease}
+    .btn-primary{background:linear-gradient(135deg,var(--teal),#20aa9e);color:#052321;box-shadow:0 10px 26px rgba(35,195,180,.24)}.btn-primary:hover{transform:translateY(-2px)}
+    .btn-secondary{border:1px solid rgba(255,255,255,.23);background:rgba(255,255,255,.06);color:#fff}.btn-secondary:hover{background:rgba(255,255,255,.1)}
+    .hero-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(12px);border-radius:24px;padding:26px;box-shadow:0 20px 60px rgba(0,0,0,.18)}
+    .hero-card h3{margin:0 0 18px;font-size:18px}.mini{display:grid;gap:12px}.mini-item{display:flex;gap:12px;align-items:flex-start;padding:13px;border-radius:14px;background:rgba(255,255,255,.06)}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--teal);margin-top:6px;flex:none}.mini-item strong{display:block;font-size:14px}.mini-item span{display:block;color:#b9c6dd;font-size:13px;margin-top:2px}
+    .section{padding:74px 0}.section.white{background:#fff}.kicker{color:var(--purple);font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:800;margin-bottom:10px}
+    h2{font-size:clamp(30px,4vw,44px);line-height:1.08;letter-spacing:-.035em;margin:0 0 16px}.sub{color:var(--muted);font-size:17px;max-width:760px;margin:0 0 34px}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 28px rgba(17,31,65,.05)}
+    .num{font-size:12px;font-weight:900;color:var(--purple);letter-spacing:.12em}.card h3{font-size:18px;margin:10px 0 8px}.card p{font-size:14px;color:var(--muted);margin:0}.card .tag{display:inline-flex;margin-top:16px;background:#f1ecff;color:#5c35b4;font-weight:800;font-size:11px;padding:7px 9px;border-radius:999px}
+    .showcase{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.case{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+    .case-top{height:5px;background:linear-gradient(90deg,var(--purple),var(--teal))}.case-body{padding:26px}.case small{font-weight:900;letter-spacing:.12em;color:var(--purple)}.case h3{font-size:22px;margin:9px 0}.case p{margin:0;color:var(--muted)}.flow{margin-top:18px;background:#f6f7fb;border:1px solid var(--line);padding:11px 13px;border-radius:12px;font-size:13px;font-weight:800;color:#4d5567}
+    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:steps}.step{position:relative;padding:24px 20px 20px;border-radius:18px;background:linear-gradient(180deg,#fff,#fafbfe);border:1px solid var(--line)}.step:before{counter-increment:steps;content:counter(steps);display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:var(--navy);color:#fff;font-size:13px;font-weight:900;margin-bottom:16px}.step strong{font-size:16px}.step p{font-size:14px;color:var(--muted);margin:7px 0 0}
+    .white-label{display:grid;grid-template-columns:1fr .9fr;gap:34px;align-items:center;background:linear-gradient(135deg,#0a1b3c,#112b5a);color:#fff;border-radius:28px;padding:40px;overflow:hidden;position:relative}.white-label:after{content:"";position:absolute;width:230px;height:230px;border-radius:50%;background:rgba(111,63,211,.32);right:-80px;bottom:-110px}.white-label p{color:#c8d4ea;margin-bottom:0}
+    .wl-list{display:grid;gap:10px;position:relative;z-index:1}.wl-item{display:flex;gap:10px;align-items:center;padding:13px 14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);border-radius:14px;font-size:14px}.check{color:var(--teal);font-weight:900}
+    .profile{display:grid;grid-template-columns:.8fr 1.2fr;gap:34px;align-items:center}.profile-card{background:linear-gradient(145deg,#eef2ff,#f6fbff);border:1px solid #dfe7f4;border-radius:26px;padding:30px;min-height:280px;display:flex;flex-direction:column;justify-content:space-between}
+    .initials{width:88px;height:88px;border-radius:26px;background:linear-gradient(135deg,var(--purple),var(--teal));display:grid;place-items:center;color:#fff;font-weight:900;font-size:30px;box-shadow:0 14px 30px rgba(111,63,211,.22)}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.skill{border:1px solid var(--line);border-radius:999px;padding:7px 10px;font-size:12px;font-weight:800;background:#fff}
+    .cta{background:linear-gradient(135deg,var(--purple),#4c2aa9);color:#fff;border-radius:28px;padding:42px;display:flex;justify-content:space-between;align-items:center;gap:28px}.cta h2{margin-bottom:8px}.cta p{margin:0;color:#e8ddff;max-width:660px}.cta .btn{background:#24d366;color:#083514;white-space:nowrap}
+    footer{padding:34px 0;color:#7a8499;font-size:13px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot-links{display:flex;gap:18px}
+    @media (max-width:900px){.hero-grid,.white-label,.profile{grid-template-columns:1fr}.hero-grid{gap:32px}.cards,.process{grid-template-columns:repeat(2,1fr)}.navlinks a:not(.btn){display:none}.showcase{grid-template-columns:1fr}.hero{padding-bottom:62px}}
+    @media (max-width:600px){.wrap{width:min(100% - 24px,1120px)}.hero{padding-top:18px}.hero-grid{padding-top:52px}.cards,.process{grid-template-columns:1fr}.section{padding:56px 0}.white-label,.cta{padding:28px}.cta{align-items:flex-start;flex-direction:column}.brand small{font-size:9px}.hero-card{padding:20px}.btn{width:100%}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="#top">LEONARDO MOELLECKE<small>AUTOMAÇÃO DE PROCESSOS · DADOS · BI</small></a>
+        <div class="navlinks">
+          <a href="#solucoes">Soluções</a><a href="#exemplos">Exemplos</a><a href="#sobre">Sobre</a>
+          <a class="btn btn-secondary" href="portfolio-leonardo-moellecke.pdf" target="_blank" rel="noopener">Ver portfólio</a>
+        </div>
+      </nav>
+      <div class="hero-grid" id="top">
+        <div>
+          <div class="eyebrow">Automação aplicada à operação</div>
+          <h1>Menos trabalho manual. Mais controle.</h1>
+          <p class="lead">Transformo rotinas repetitivas em processos automatizados, auditáveis e fáceis de operar — integrando planilhas, dados, relatórios e sistemas sem exigir a troca das ferramentas que sua empresa já usa.</p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="https://wa.me/5551993309357?text=Ol%C3%A1%20Leonardo%2C%20vi%20seu%20site%20e%20quero%20avaliar%20uma%20rotina%20para%20automa%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar no WhatsApp</a>
+            <a class="btn btn-secondary" href="#solucoes">Ver o que posso automatizar</a>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <h3>Onde normalmente existe ganho rápido</h3>
+          <div class="mini">
+            <div class="mini-item"><span class="dot"></span><div><strong>Planilhas recorrentes</strong><span>Consolidação, validação e geração automática.</span></div></div>
+            <div class="mini-item"><span class="dot"></span><div><strong>Relatórios e KPIs</strong><span>Base estruturada e informação pronta para leitura.</span></div></div>
+            <div class="mini-item"><span class="dot"></span><div><strong>Rotinas em sistemas web</strong><span>Consultas, downloads, preenchimentos e logs.</span></div></div>
+            <div class="mini-item"><span class="dot"></span><div><strong>Conferência de dados</strong><span>Cruzamento de bases, divergências e evidências.</span></div></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="section white" id="solucoes"><div class="wrap">
+      <div class="kicker">Do dado bruto à entrega</div><h2>O que posso automatizar</h2>
+      <p class="sub">Projetos pontuais e objetivos, pensados para reduzir retrabalho e liberar tempo da equipe sem transformar a solução em um projeto de TI longo.</p>
+      <div class="cards">
+        <article class="card"><div class="num">01</div><h3>Planilhas e relatórios</h3><p>Consolidação, fórmulas, validações, padronização e geração automática de entregáveis.</p><span class="tag">Excel · Python</span></article>
+        <article class="card"><div class="num">02</div><h3>Rotinas web e RPA</h3><p>Consultas, downloads, preenchimentos, organização de arquivos e registro de execução.</p><span class="tag">RPA · Python</span></article>
+        <article class="card"><div class="num">03</div><h3>Dados e conferências</h3><p>Limpeza, cruzamento, comparação de bases, duplicidades e evidências de divergência.</p><span class="tag">SQL · Python</span></article>
+        <article class="card"><div class="num">04</div><h3>Dashboards executivos</h3><p>KPIs em Power BI ou Excel com base estruturada e leitura gerencial objetiva.</p><span class="tag">Power BI · SQL</span></article>
+      </div>
+    </div></section>
+    <section class="section" id="exemplos"><div class="wrap">
+      <div class="kicker">Exemplos conceituais</div><h2>Soluções demonstrativas</h2><p class="sub">Alguns formatos de projeto que podem ser adaptados à rotina da sua empresa.</p>
+      <div class="showcase">
+        <article class="case"><div class="case-top"></div><div class="case-body"><small>BPO / FINANCEIRO</small><h3>Fechamento financeiro automático</h3><p>Importa, padroniza, cruza e valida informações antes de gerar o relatório final.</p><div class="flow">Arquivos → regras → validação → relatório</div></div></article>
+        <article class="case"><div class="case-top"></div><div class="case-body"><small>GESTÃO / INDICADORES</small><h3>Dashboard executivo automatizado</h3><p>Organiza a base, estrutura a atualização e apresenta KPIs, desvios e evolução.</p><div class="flow">Base única → KPIs → decisão</div></div></article>
+        <article class="case"><div class="case-top"></div><div class="case-body"><small>CONFERÊNCIA / QUALIDADE</small><h3>Comparador e auditor de bases</h3><p>Compara arquivos ou períodos, identifica divergências e entrega uma trilha clara para conferência.</p><div class="flow">Base A + Base B → regras → divergências</div></div></article>
+        <article class="case"><div class="case-top"></div><div class="case-body"><small>OPERAÇÃO / RPA</small><h3>Robô para rotina repetitiva</h3><p>Executa etapas padronizadas em páginas e sistemas web, organiza arquivos e registra o resultado.</p><div class="flow">Entrada → execução → evidência → saída</div></div></article>
+      </div>
+    </div></section>
+    <section class="section white"><div class="wrap">
+      <div class="kicker">Projeto simples</div><h2>Como funciona</h2><p class="sub">A ideia é começar pequeno: uma rotina, um problema claro e uma entrega objetiva.</p>
+      <div class="process">
+        <div class="step"><strong>Você mostra a rotina</strong><p>Planilha, relatório, sistema ou processo repetitivo.</p></div>
+        <div class="step"><strong>Eu avalio o ganho</strong><p>Identifico o que faz sentido automatizar e o que deve continuar manual.</p></div>
+        <div class="step"><strong>Definimos o piloto</strong><p>Escopo enxuto, prazo e resultado esperado.</p></div>
+        <div class="step"><strong>Entrego e ajusto</strong><p>Solução pronta para operar, com validações e orientação de uso.</p></div>
+      </div>
+    </div></section>
+    <section class="section"><div class="wrap"><div class="white-label">
+      <div><div class="kicker" style="color:#9ce7df">Para BPOs, contabilidades e consultorias</div><h2>Parceria técnica white label</h2><p>Você mantém o relacionamento com seu cliente e eu atuo como braço técnico, desenvolvendo automações pontuais sob demanda. Uma forma de ampliar seu portfólio sem manter uma equipe de desenvolvimento fixa.</p></div>
+      <div class="wl-list"><div class="wl-item"><span class="check">✓</span> Automação sob demanda para clientes</div><div class="wl-item"><span class="check">✓</span> Entregas personalizadas e discretas</div><div class="wl-item"><span class="check">✓</span> Projetos pequenos, pilotos e MVPs</div><div class="wl-item"><span class="check">✓</span> Excel, Python, SQL, Power BI e RPA</div></div>
+    </div></div></section>
+    <section class="section white" id="sobre"><div class="wrap profile">
+      <div class="profile-card"><div class="initials">LM</div><div><strong style="font-size:20px">Leonardo Moellecke</strong><div style="color:var(--muted);margin-top:5px">Automação de Processos · Dados · BI</div><div class="skills"><span class="skill">Python</span><span class="skill">Excel</span><span class="skill">SQL</span><span class="skill">Power BI</span><span class="skill">RPA</span></div></div></div>
+      <div><div class="kicker">Perfil técnico + visão operacional</div><h2>Automação pensada para a rotina real.</h2><p class="sub" style="margin-bottom:18px">Formação técnica em Eletrotécnica e superior em Automação Industrial, com experiência prática em operações, indicadores e melhoria de processos. Atuo em projetos pontuais, pilotos/MVPs e parcerias white label.</p><p style="color:var(--muted);margin:0">O foco não é criar tecnologia pela tecnologia: é reduzir etapas manuais, aumentar controle e deixar a informação pronta para uso.</p></div>
+    </div></section>
+    <section class="section"><div class="wrap"><div class="cta">
+      <div><h2>Tem uma rotina repetitiva que poderia ser automatizada?</h2><p>Me mostre como o processo funciona hoje. Eu avalio se existe um caminho simples e objetivo para automatizá-lo.</p></div>
+      <a class="btn" href="https://wa.me/5551993309357?text=Ol%C3%A1%20Leonardo%2C%20vi%20seu%20site%20e%20quero%20avaliar%20uma%20rotina%20para%20automa%C3%A7%C3%A3o." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    </div></div></section>
+  </main>
+  <footer><div class="wrap foot"><div>© 2026 Leonardo Moellecke · Porto Alegre/RS e atendimento remoto</div><div class="foot-links"><a href="portfolio-leonardo-moellecke.pdf" target="_blank" rel="noopener">Portfólio PDF</a><a href="https://www.linkedin.com/in/leonardo-moellecke" target="_blank" rel="noopener">LinkedIn</a><a href="https://wa.me/5551993309357" target="_blank" rel="noopener">WhatsApp</a></div></div></footer>
+</body>
+</html>
