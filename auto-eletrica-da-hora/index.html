@@ -2,176 +2,260 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auto Elétrica da Hora | Elétrica Pesada em Canoas/RS</title>
-  <meta name="description" content="Auto Elétrica da Hora, em Canoas/RS. Desde 1978 com elétrica automotiva para caminhões, veículos pesados, semipesados e máquinas. Sistemas 12V/24V, alternadores, motores de partida, baterias, iluminação e sinalização." />
-  <meta name="theme-color" content="#111111" />
+  <meta name="description" content="Auto Elétrica da Hora em Canoas/RS. Desde 1978 com elétrica automotiva para caminhões, veículos pesados, semipesados e máquinas. Sistemas 12V/24V, alternadores, motores de partida, baterias, iluminação e sinalização." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b0b0d" />
+  <link rel="canonical" href="https://leozinmlk.github.io/automacao-leonardo/auto-eletrica-da-hora/" />
   <meta property="og:title" content="Auto Elétrica da Hora | Elétrica Pesada em Canoas/RS" />
   <meta property="og:description" content="Desde 1978 com elétrica automotiva para caminhões, veículos pesados, semipesados e máquinas." />
   <meta property="og:type" content="website" />
+
   <style>
     :root{
-      --bg:#0d0d0f;
-      --panel:#17171b;
-      --panel2:#202026;
-      --text:#f7f7f7;
-      --muted:#b7b7bd;
-      --yellow:#ffd400;
-      --red:#e32323;
-      --line:#2d2d34;
-      --ok:#21c55d;
-      --max:1180px;
+      --bg:#0b0b0d;--bg2:#101014;--panel:#17171b;--panel2:#202026;
+      --text:#f7f7f8;--muted:#a9a9b1;--yellow:#ffd400;--yellow2:#ffeb70;
+      --red:#e52b2b;--line:#2c2c33;--green:#25d366;--max:1180px;
+      --shadow:0 26px 80px rgba(0,0,0,.36);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0;
-      font-family:Inter,Segoe UI,Arial,sans-serif;
-      background:
-        radial-gradient(circle at 80% 0%, rgba(227,35,35,.14), transparent 28rem),
-        radial-gradient(circle at 10% 10%, rgba(255,212,0,.08), transparent 25rem),
-        var(--bg);
+      margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
       color:var(--text);
-      line-height:1.5;
+      background:
+        radial-gradient(circle at 10% 7%,rgba(255,212,0,.07),transparent 25rem),
+        radial-gradient(circle at 94% 22%,rgba(229,43,43,.08),transparent 29rem),
+        var(--bg);
+      line-height:1.6;-webkit-font-smoothing:antialiased;
+    }
+    body:before{
+      content:"";position:fixed;inset:0;z-index:-3;pointer-events:none;
+      background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+      background-size:54px 54px;
     }
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:auto;padding:0 22px}
-    .topbar{
-      background:#070708;
-      border-bottom:1px solid var(--line);
-      font-size:14px;
-      color:#ddd;
-    }
-    .topbar .wrap{display:flex;gap:18px;justify-content:space-between;align-items:center;min-height:40px;flex-wrap:wrap}
-    .topbar .mini{display:flex;gap:18px;flex-wrap:wrap}
+    button{font:inherit}
+    .wrap{width:min(var(--max),calc(100% - 42px));margin:auto}
+    .topbar{border-bottom:1px solid rgba(255,255,255,.06);background:#060607;color:#d6d6da;font-size:12.5px}
+    .topbar .wrap{min-height:39px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+    .topbar .left{display:flex;gap:20px;flex-wrap:wrap}
+    .live-dot{width:7px;height:7px;border-radius:50%;background:#57df82;display:inline-block;margin-right:7px;box-shadow:0 0 0 5px rgba(87,223,130,.09),0 0 16px rgba(87,223,130,.55)}
     header{
-      position:sticky;top:0;z-index:20;
-      backdrop-filter:blur(14px);
-      background:rgba(13,13,15,.88);
-      border-bottom:1px solid rgba(255,255,255,.06);
+      position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(255,255,255,.055);
+      background:rgba(11,11,13,.77);backdrop-filter:blur(18px);
+      transition:.25s box-shadow,.25s background;
     }
-    nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.2px}
-    .bolt{
-      width:42px;height:42px;border-radius:12px;
-      background:linear-gradient(135deg,var(--yellow),#ffef76);
-      display:grid;place-items:center;color:#111;font-size:25px;box-shadow:0 8px 30px rgba(255,212,0,.18)
+    header.scrolled{background:rgba(11,11,13,.94);box-shadow:0 10px 40px rgba(0,0,0,.28)}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:950;letter-spacing:.01em;line-height:1.1}
+    .brand-bolt{
+      width:43px;height:43px;border-radius:13px;display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--yellow),#ffe967);color:#111;font-size:24px;
+      box-shadow:0 11px 32px rgba(255,212,0,.20);
+      transform:rotate(-2deg);
     }
-    .brand small{display:block;color:var(--muted);font-size:11px;letter-spacing:1.4px;font-weight:700}
-    .links{display:flex;gap:22px;align-items:center;color:#ddd;font-size:14px}
+    .brand small{display:block;color:#92929c;font-size:9.5px;letter-spacing:.17em;margin-top:4px}
+    .navlinks{display:flex;align-items:center;gap:22px;color:#d5d5da;font-size:13px}
+    .navlinks>a:not(.btn){position:relative;padding:8px 0}
+    .navlinks>a:not(.btn):after{
+      content:"";position:absolute;left:0;right:100%;bottom:2px;height:2px;border-radius:2px;
+      background:linear-gradient(90deg,var(--yellow),var(--red));transition:.25s ease
+    }
+    .navlinks>a:not(.btn):hover:after{right:0}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:9px;
-      min-height:48px;padding:0 20px;border-radius:12px;font-weight:800;
-      transition:.2s transform,.2s opacity,.2s box-shadow;border:1px solid transparent;
+      min-height:48px;padding:12px 19px;border-radius:14px;font-weight:900;font-size:13px;
+      border:1px solid transparent;cursor:pointer;
+      transition:.22s transform,.22s box-shadow,.22s background,.22s border-color;
     }
+    .btn:after{content:"↗";font-size:14px;transition:.2s transform}
+    .btn:hover:after{transform:translate(2px,-2px)}
     .btn:hover{transform:translateY(-2px)}
-    .btn-yellow{background:var(--yellow);color:#111;box-shadow:0 10px 30px rgba(255,212,0,.18)}
-    .btn-dark{background:#1d1d22;border-color:#393941;color:#fff}
-    .btn-red{background:var(--red);color:#fff}
-    .hero{padding:84px 0 58px;position:relative;overflow:hidden}
-    .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:52px;align-items:center}
-    .eyebrow{color:var(--yellow);font-weight:900;text-transform:uppercase;letter-spacing:2px;font-size:13px}
-    h1{font-size:clamp(44px,6vw,78px);line-height:.98;margin:14px 0 24px;letter-spacing:-3px}
-    h1 span{color:var(--yellow)}
-    .lead{font-size:20px;color:#d6d6db;max-width:740px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-    .trust{display:flex;gap:24px;flex-wrap:wrap;margin-top:30px;color:#d7d7dc;font-size:14px}
+    .btn-yellow{background:linear-gradient(135deg,var(--yellow),var(--yellow2));color:#111;box-shadow:0 12px 34px rgba(255,212,0,.18)}
+    .btn-yellow:hover{box-shadow:0 17px 42px rgba(255,212,0,.26)}
+    .btn-dark{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.12);color:#fff}
+    .btn-dark:hover{background:rgba(255,255,255,.09)}
+    .btn-red{background:linear-gradient(135deg,#ef4040,#ce1f1f);color:#fff;box-shadow:0 12px 30px rgba(229,43,43,.18)}
+
+    .hero{position:relative;overflow:hidden;padding:86px 0 72px;isolation:isolate}
+    .hero:before{
+      content:"";position:absolute;width:620px;height:620px;border-radius:50%;right:-230px;top:-90px;
+      border:1px solid rgba(255,212,0,.09);box-shadow:0 0 0 80px rgba(255,212,0,.018),0 0 0 170px rgba(229,43,43,.012);z-index:-1
+    }
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(360px,.9fr);gap:64px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.045);
+      color:#f7dc63;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:950
+    }
+    .eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 5px rgba(255,212,0,.08),0 0 17px rgba(255,212,0,.58)}
+    h1{
+      font-size:clamp(48px,6.5vw,82px);line-height:.95;letter-spacing:-.058em;margin:22px 0 26px;
+      max-width:850px;text-wrap:balance
+    }
+    h1 span{
+      background:linear-gradient(105deg,var(--yellow),#fff0a0 55%,#ff8b58);
+      -webkit-background-clip:text;background-clip:text;color:transparent
+    }
+    .lead{font-size:clamp(17px,1.8vw,20px);color:#c8c8cf;max-width:770px;margin:0 0 32px}
+    .buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+    .trust span{padding:9px 11px;border:1px solid #2f2f36;border-radius:999px;background:#121216;color:#c9c9ce;font-size:12.5px}
     .trust b{color:#fff}
+
     .hero-card{
-      background:linear-gradient(160deg,#222228,#121216);
-      border:1px solid #34343b;border-radius:28px;padding:28px;position:relative;overflow:hidden;
-      box-shadow:0 30px 80px rgba(0,0,0,.35)
+      position:relative;border:1px solid rgba(255,255,255,.11);
+      background:linear-gradient(155deg,rgba(255,255,255,.085),rgba(255,255,255,.025));
+      backdrop-filter:blur(16px);border-radius:28px;padding:26px;box-shadow:var(--shadow);
+      transform:perspective(900px) rotateY(-3deg) rotateX(1deg);overflow:hidden
     }
     .hero-card:before{
-      content:"";position:absolute;width:220px;height:220px;border-radius:50%;
-      background:rgba(255,212,0,.1);right:-80px;top:-80px;filter:blur(4px)
+      content:"";position:absolute;inset:-1px;border-radius:28px;padding:1px;
+      background:linear-gradient(135deg,rgba(255,212,0,.65),transparent 45%,rgba(229,43,43,.38));
+      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none
     }
-    .hero-card .truck{
-      min-height:235px;border-radius:20px;
-      background:
-        linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.7)),
-        linear-gradient(130deg,#37373e,#17171b 58%,#2d2d32);
-      border:1px solid #3b3b43;
-      display:flex;align-items:flex-end;padding:24px;
-      position:relative;overflow:hidden;
+    .hero-card:after{content:"DIAGNÓSTICO RÁPIDO";position:absolute;right:23px;top:18px;font-size:8.5px;letter-spacing:.18em;font-weight:950;color:#8f8f99}
+    .panel-title{margin:4px 0 7px;font-size:21px;letter-spacing:-.03em}
+    .panel-sub{color:#a9a9b2;font-size:13px;margin:0 0 18px}
+    .symptoms{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+    .symptom{
+      border:1px solid #34343b;background:#151519;color:#d9d9de;border-radius:14px;padding:12px 13px;
+      text-align:left;font-weight:800;font-size:12.5px;cursor:pointer;transition:.2s ease
     }
-    .truck .graphic{
-      position:absolute;inset:0;display:grid;place-items:center;font-size:116px;opacity:.18;transform:rotate(-8deg)
+    .symptom:hover,.symptom.active{border-color:rgba(255,212,0,.55);background:#1e1d15;color:#fff;transform:translateY(-2px)}
+    .diag-output{
+      margin-top:14px;border-radius:16px;padding:16px;background:#101014;border:1px solid #313138;
+      min-height:115px;position:relative;overflow:hidden
     }
-    .truck .copy{position:relative;z-index:2}
-    .truck .copy strong{display:block;font-size:27px}
-    .truck .copy span{color:#d4d4d7}
-    .numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
-    .num{background:#111115;border:1px solid #303037;border-radius:16px;padding:16px;text-align:center}
-    .num strong{display:block;font-size:22px;color:var(--yellow)}
-    .num span{font-size:12px;color:var(--muted)}
-    section{padding:72px 0}
-    .section-head{max-width:760px;margin-bottom:34px}
-    .section-head h2{font-size:clamp(32px,4vw,48px);line-height:1.05;margin:8px 0 12px;letter-spacing:-1.7px}
-    .section-head p{color:var(--muted);font-size:17px}
-    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .card{
-      background:linear-gradient(180deg,var(--panel),#121216);
-      border:1px solid var(--line);border-radius:18px;padding:22px;min-height:200px;
+    .diag-output:after{content:"";position:absolute;left:0;bottom:0;width:34%;height:2px;background:linear-gradient(90deg,var(--yellow),var(--red))}
+    .diag-output strong{display:block;color:#fff;font-size:14px;margin-bottom:5px}
+    .diag-output p{margin:0;color:#aaaab3;font-size:12.5px}
+    .diag-link{display:inline-flex;margin-top:11px;color:var(--yellow);font-size:12px;font-weight:900}
+    .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}
+    .metric{border:1px solid #313138;background:#101014;border-radius:14px;padding:13px 9px;text-align:center}
+    .metric strong{display:block;font-size:20px;color:var(--yellow);letter-spacing:-.03em}
+    .metric span{font-size:10.5px;color:#8f8f99}
+
+    .section{padding:88px 0;position:relative}
+    .section.alt{background:linear-gradient(180deg,#101014,#0d0d10);border-top:1px solid rgba(255,255,255,.035);border-bottom:1px solid rgba(255,255,255,.035)}
+    .kicker{display:inline-flex;align-items:center;gap:9px;color:var(--yellow);font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;font-weight:950;margin-bottom:11px}
+    .kicker:before{content:"";width:22px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--yellow),var(--red))}
+    h2{font-size:clamp(32px,4vw,49px);line-height:1.04;letter-spacing:-.045em;margin:0 0 16px;text-wrap:balance}
+    .sub{color:var(--muted);font-size:16px;max-width:810px;margin:0 0 36px}
+
+    .services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .service{
+      position:relative;overflow:hidden;min-height:224px;padding:24px;border-radius:21px;
+      background:linear-gradient(180deg,#19191e,#121216);border:1px solid #2d2d34;
+      transition:.25s transform,.25s box-shadow,.25s border-color
     }
-    .icon{
-      width:44px;height:44px;border-radius:12px;background:rgba(255,212,0,.1);
-      border:1px solid rgba(255,212,0,.25);display:grid;place-items:center;color:var(--yellow);font-size:22px
+    .service:before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--yellow),var(--red));transform:scaleX(.28);transform-origin:left;transition:.28s transform}
+    .service:after{content:"";position:absolute;right:-50px;top:-58px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(255,212,0,.09),transparent 65%);transition:.3s transform}
+    .service:hover{transform:translateY(-8px);border-color:#3c3c45;box-shadow:0 24px 60px rgba(0,0,0,.28)}
+    .service:hover:before{transform:scaleX(1)}
+    .service:hover:after{transform:scale(1.3)}
+    .service-icon{width:43px;height:43px;border-radius:13px;display:grid;place-items:center;background:rgba(255,212,0,.09);border:1px solid rgba(255,212,0,.21);font-size:20px}
+    .service h3{font-size:17px;margin:18px 0 9px}
+    .service p{color:#a9a9b2;font-size:13px;margin:0}
+    .tag{display:inline-flex;margin-top:17px;padding:6px 9px;border-radius:999px;background:#222216;color:#efdb77;border:1px solid #393727;font-size:10px;font-weight:900}
+
+    .why-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:25px;align-items:stretch}
+    .feature-card{
+      border:1px solid #303038;border-radius:25px;padding:30px;background:
+        radial-gradient(circle at 90% 8%,rgba(255,212,0,.06),transparent 25%),
+        linear-gradient(160deg,#18181d,#111115);box-shadow:0 18px 54px rgba(0,0,0,.18)
     }
-    .card h3{margin:18px 0 8px;font-size:18px}
-    .card p{margin:0;color:var(--muted);font-size:14px}
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-    .feature{
-      background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:28px
+    .checks{display:grid;gap:12px;margin-top:24px}
+    .check{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;border:1px solid #2d2d34;border-radius:15px;background:#131317;transition:.2s}
+    .check:hover{transform:translateX(4px);border-color:#45454d}
+    .checkmark{width:23px;height:23px;flex:0 0 23px;border-radius:8px;display:grid;place-items:center;background:#272711;color:var(--yellow);font-weight:950;font-size:12px}
+    .check strong{display:block;font-size:13.5px}.check span{color:#9797a0;font-size:12px}
+    .segments{display:flex;gap:9px;flex-wrap:wrap;margin-top:21px}
+    .pill{border:1px solid #32323a;background:#151519;border-radius:999px;padding:9px 12px;font-size:12.5px;color:#d8d8dd;transition:.2s}
+    .pill:hover{border-color:rgba(255,212,0,.42);color:#fff;transform:translateY(-2px)}
+
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:steps;position:relative}
+    .steps:before{content:"";position:absolute;left:8%;right:8%;top:21px;height:2px;background:linear-gradient(90deg,rgba(255,212,0,.25),rgba(229,43,43,.25))}
+    .step{
+      position:relative;z-index:1;border:1px solid #2e2e35;background:linear-gradient(180deg,#17171b,#111115);
+      border-radius:20px;padding:27px 21px 23px;transition:.22s
     }
-    .check{display:flex;gap:13px;align-items:flex-start;margin:15px 0;color:#ddd}
-    .dot{width:24px;height:24px;flex:0 0 24px;border-radius:50%;background:rgba(33,197,93,.13);color:#6ee79a;display:grid;place-items:center;font-weight:900}
-    .segments{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-    .pill{border:1px solid #34343b;background:#17171b;border-radius:999px;padding:10px 14px;color:#ddd;font-size:14px}
+    .step:hover{transform:translateY(-5px);border-color:#414149}
+    .step:before{
+      counter-increment:steps;content:counter(steps);width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--yellow),#f1a832);color:#111;font-weight:950;font-size:12px;margin-bottom:18px;box-shadow:0 0 0 5px #0f0f12
+    }
+    .step strong{font-size:14px}.step p{color:#9999a2;font-size:12.5px;margin:7px 0 0}
+
+    .faq-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:28px;align-items:start}
+    .faq-list{display:grid;gap:10px}
+    .faq-item{border:1px solid #303038;border-radius:16px;background:#151519;overflow:hidden}
+    .faq-q{width:100%;background:none;border:0;color:#fff;display:flex;justify-content:space-between;gap:15px;text-align:left;padding:17px 18px;font-weight:850;cursor:pointer}
+    .faq-q span:last-child{color:var(--yellow);transition:.2s transform}
+    .faq-item.open .faq-q span:last-child{transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:#a5a5ae;font-size:13px}
+    .faq-a div{padding:0 18px 18px}
+
     .cta{
+      border-radius:29px;padding:43px 46px;display:flex;align-items:center;justify-content:space-between;gap:30px;
       background:
-        linear-gradient(100deg,rgba(227,35,35,.24),transparent 45%),
-        linear-gradient(160deg,#202026,#111115);
-      border:1px solid #3b3b43;border-radius:28px;padding:42px;
-      display:flex;justify-content:space-between;gap:28px;align-items:center
+        radial-gradient(circle at 85% 25%,rgba(255,212,0,.16),transparent 24%),
+        linear-gradient(135deg,#2b2510,#17130a 45%,#231010);
+      border:1px solid #4a4020;box-shadow:0 28px 70px rgba(0,0,0,.25);position:relative;overflow:hidden
     }
-    .cta h2{font-size:clamp(30px,4vw,47px);line-height:1.03;margin:0 0 12px;letter-spacing:-1.6px}
-    .cta p{margin:0;color:#c8c8ce;max-width:680px}
-    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
-    .contact-box{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:28px}
-    .contact-row{padding:14px 0;border-bottom:1px solid var(--line)}
+    .cta:before{content:"";position:absolute;left:-110px;top:-165px;width:260px;height:260px;border-radius:50%;border:1px solid rgba(255,212,0,.15);box-shadow:0 0 0 46px rgba(255,212,0,.022)}
+    .cta>*{position:relative;z-index:1}
+    .cta h2{margin-bottom:10px}.cta p{margin:0;color:#c3c3ca;max-width:700px}
+
+    .contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
+    .contact-box{border:1px solid #303038;background:#151519;border-radius:22px;padding:28px}
+    .contact-row{padding:13px 0;border-bottom:1px solid #2c2c33}
     .contact-row:last-child{border-bottom:0}
-    .contact-row span{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1px}
-    .contact-row strong{font-size:17px}
-    .hours{display:grid;grid-template-columns:1fr auto;gap:10px;color:#ddd;font-size:14px}
-    .hours div:nth-child(even){color:#fff;font-weight:700}
-    footer{padding:28px 0 100px;color:#9d9da4;font-size:13px}
-    .floating{
-      position:fixed;right:20px;bottom:20px;z-index:25;
-      background:#25D366;color:#082511;border-radius:999px;
-      padding:14px 18px;font-weight:900;box-shadow:0 16px 40px rgba(37,211,102,.25)
+    .contact-row span{display:block;color:#8f8f99;font-size:10px;text-transform:uppercase;letter-spacing:.14em}
+    .contact-row strong{font-size:16px}
+    .hours{display:grid;grid-template-columns:1fr auto;gap:9px;color:#c9c9cf;font-size:12.5px}
+    .hours div:nth-child(even){color:#fff;font-weight:800}
+
+    .wa-float{
+      position:fixed;right:19px;bottom:19px;z-index:90;width:59px;height:59px;border-radius:20px;
+      display:grid;place-items:center;background:#25d366;color:#fff;border:1px solid rgba(255,255,255,.65);
+      box-shadow:0 15px 38px rgba(10,78,36,.31);transition:.22s
     }
-    .highlight{color:var(--yellow)}
-    @media (max-width:900px){
-      .links a:not(.nav-cta){display:none}
-      .hero-grid,.split,.contact-grid{grid-template-columns:1fr}
-      .grid{grid-template-columns:repeat(2,1fr)}
-      .hero{padding-top:54px}
-      .cta{align-items:flex-start;flex-direction:column}
+    .wa-float:hover{transform:translateY(-4px) scale(1.03)}
+    .wa-float svg{width:27px;height:27px;fill:currentColor}
+    footer{padding:36px 0 88px;border-top:1px solid #292930;background:#0b0b0d;color:#85858f;font-size:12px}
+    .foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.foot-links{display:flex;gap:18px}.foot-links a{font-weight:800}.foot-links a:hover{color:var(--yellow)}
+
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:980px){
+      .hero-grid,.why-grid,.faq-grid{grid-template-columns:1fr}
+      .hero-card{transform:none;max-width:720px}
+      .services,.steps{grid-template-columns:repeat(2,1fr)}
+      .steps:before{display:none}
+      .navlinks>a:not(.btn){display:none}
     }
-    @media (max-width:560px){
-      .topbar .wrap{padding-top:7px;padding-bottom:7px}
-      .topbar .mini span:nth-child(2){display:none}
-      nav{height:66px}
-      h1{letter-spacing:-2px}
-      .lead{font-size:17px}
-      .grid{grid-template-columns:1fr}
-      .numbers{grid-template-columns:1fr 1fr 1fr}
-      .num{padding:12px 8px}
-      .hero-card{padding:16px}
-      section{padding:52px 0}
-      .cta{padding:28px}
-      .floating{left:14px;right:14px;text-align:center}
+    @media(max-width:640px){
+      .wrap{width:min(100% - 24px,var(--max))}
+      .topbar .left span:nth-child(2){display:none}
+      nav{height:67px}.brand{font-size:12px}.brand small{display:none}.brand-bolt{width:36px;height:36px;border-radius:11px}
+      .navlinks .btn{min-height:40px;padding:9px 12px;font-size:11px}
+      .hero{padding:58px 0 52px}.hero-grid{gap:34px}.hero-card{padding:20px;border-radius:22px}
+      h1{font-size:clamp(43px,13vw,60px)}.lead{font-size:16px}.buttons{display:grid;grid-template-columns:1fr}.btn{width:100%}
+      .metrics{grid-template-columns:repeat(3,1fr)}.metric{padding:11px 5px}.metric strong{font-size:17px}
+      .services,.steps{grid-template-columns:1fr}.section{padding:62px 0}
+      .cta{padding:29px;flex-direction:column;align-items:flex-start}
+      .contact-grid{grid-template-columns:1fr}
+      .hours{grid-template-columns:1fr}.hours div:nth-child(even){margin-bottom:6px}
+      .wa-float{right:14px;bottom:14px;width:53px;height:53px;border-radius:18px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}
+      .reveal{opacity:1;transform:none}
     }
   </style>
 
@@ -180,20 +264,11 @@
     "@context":"https://schema.org",
     "@type":["AutoRepair","LocalBusiness"],
     "name":"Auto Elétrica da Hora",
+    "url":"https://leozinmlk.github.io/automacao-leonardo/auto-eletrica-da-hora/",
     "description":"Auto elétrica em Canoas/RS especializada em veículos pesados, semipesados e máquinas. Sistemas 12V/24V, alternadores, motores de partida, baterias, iluminação e sinalização.",
     "telephone":"+55 51 98108-3080",
-    "address":{
-      "@type":"PostalAddress",
-      "streetAddress":"Rua Itu, 38",
-      "addressLocality":"Canoas",
-      "addressRegion":"RS",
-      "postalCode":"92410-130",
-      "addressCountry":"BR"
-    },
-    "sameAs":[
-      "https://www.instagram.com/autoeletricadahora",
-      "https://www.facebook.com/autoeletricadahora"
-    ],
+    "address":{"@type":"PostalAddress","streetAddress":"Rua Itu, 38","addressLocality":"Canoas","addressRegion":"RS","postalCode":"92410-130","addressCountry":"BR"},
+    "sameAs":["https://www.instagram.com/autoeletricadahora","https://www.facebook.com/autoeletricadahora"],
     "openingHoursSpecification":[
       {"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"08:30","closes":"12:00"},
       {"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"13:30","closes":"18:30"},
@@ -211,26 +286,18 @@
 <body>
   <div class="topbar">
     <div class="wrap">
-      <div class="mini">
-        <span>📍 Rua Itu, 38 — Igara, Canoas/RS</span>
-        <span>🕒 Seg–Sex • Sáb até 12h30</span>
-      </div>
+      <div class="left"><span><i class="live-dot"></i>Auto Elétrica da Hora</span><span>📍 Rua Itu, 38 — Igara, Canoas/RS</span></div>
       <a href="tel:+5551981083080">📞 (51) 98108-3080</a>
     </div>
   </div>
 
-  <header>
+  <header id="siteHeader">
     <div class="wrap">
       <nav>
-        <a class="brand" href="#inicio">
-          <div class="bolt">⚡</div>
-          <div>AUTO ELÉTRICA DA HORA<small>DESDE 1978 • CANOAS/RS</small></div>
-        </a>
-        <div class="links">
-          <a href="#servicos">Serviços</a>
-          <a href="#empresa">A empresa</a>
-          <a href="#contato">Contato</a>
-          <a class="btn btn-yellow nav-cta" href="https://wa.me/5551981083080?text=Olá%21%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="brand" href="#inicio"><span class="brand-bolt">⚡</span><span>AUTO ELÉTRICA DA HORA<small>DESDE 1978 · CANOAS/RS</small></span></a>
+        <div class="navlinks">
+          <a href="#servicos">Serviços</a><a href="#empresa">A empresa</a><a href="#faq">Dúvidas</a><a href="#contato">Contato</a>
+          <a class="btn btn-yellow" href="https://wa.me/5551981083080?text=Olá%21%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </nav>
     </div>
@@ -240,118 +307,138 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow">Autoelétrica especializada em veículos pesados</div>
-          <h1>ELÉTRICA PESADA.<br><span>DESDE 1978.</span></h1>
+          <div class="eyebrow">Autoelétrica especializada em linha pesada</div>
+          <h1>ELÉTRICA PESADA.<br><span>SEM ENROLAÇÃO.</span></h1>
           <p class="lead">Diagnóstico e manutenção elétrica para caminhões, veículos pesados, semipesados e máquinas em Canoas/RS. Especialistas em Mercedes-Benz e atendimento multimarcas.</p>
-          <div class="hero-actions">
-            <a class="btn btn-yellow" href="https://wa.me/5551981083080?text=Olá%21%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener">💬 Solicitar orçamento</a>
-            <a class="btn btn-dark" href="https://maps.google.com/maps?cid=5728666617601848548" target="_blank" rel="noopener">📍 Como chegar</a>
+          <div class="buttons">
+            <a class="btn btn-yellow" href="https://wa.me/5551981083080?text=Olá%21%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener">Solicitar orçamento</a>
+            <a class="btn btn-dark" href="https://maps.google.com/maps?cid=5728666617601848548" target="_blank" rel="noopener">Como chegar</a>
           </div>
-          <div class="trust">
-            <span>✓ <b>48 anos</b> de atuação</span>
-            <span>✓ Sistemas <b>12V e 24V</b></span>
-            <span>✓ Linha pesada e <b>multimarcas</b></span>
-          </div>
+          <div class="trust"><span>✓ <b>Desde 1978</b></span><span>✓ Sistemas <b>12V e 24V</b></span><span>✓ Linha pesada e <b>multimarcas</b></span></div>
         </div>
 
         <aside class="hero-card">
-          <div class="truck">
-            <div class="graphic">🚛⚡</div>
-            <div class="copy">
-              <strong>Seu caminhão precisa de elétrica?</strong>
-              <span>Fale direto com nossa equipe e descreva o problema.</span>
-            </div>
+          <h3 class="panel-title">O que está acontecendo?</h3>
+          <p class="panel-sub">Escolha o sintoma e veja por onde normalmente começa a avaliação.</p>
+          <div class="symptoms">
+            <button class="symptom active" data-key="partida">🚛 Não pega</button>
+            <button class="symptom" data-key="bateria">🔋 Bateria descarrega</button>
+            <button class="symptom" data-key="carga">⚡ Luz da bateria</button>
+            <button class="symptom" data-key="sinal">💡 Sinalização</button>
           </div>
-          <div class="numbers">
-            <div class="num"><strong>1978</strong><span>desde</span></div>
-            <div class="num"><strong>12/24V</strong><span>sistemas</span></div>
-            <div class="num"><strong>4,8★</strong><span>Google</span></div>
+          <div class="diag-output" id="diagOutput">
+            <strong>Falha de partida</strong>
+            <p>A avaliação costuma começar por bateria, cabos, alimentação e motor de partida.</p>
+            <a class="diag-link" id="diagLink" href="https://wa.me/5551981083080?text=Olá%21%20Meu%20veículo%20não%20está%20pegando%20e%20quero%20uma%20avaliação." target="_blank" rel="noopener">Enviar esse problema no WhatsApp →</a>
+          </div>
+          <div class="metrics">
+            <div class="metric"><strong>1978</strong><span>desde</span></div>
+            <div class="metric"><strong>12/24V</strong><span>sistemas</span></div>
+            <div class="metric"><strong>4,8★</strong><span>Google</span></div>
           </div>
         </aside>
       </div>
     </section>
 
-    <section id="servicos">
+    <section class="section alt" id="servicos">
       <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">Serviços</div>
-          <h2>Elétrica automotiva com foco em linha pesada</h2>
-          <p>Atendimento para caminhões, ônibus, vans, carretas, empilhadeiras, máquinas, motorhomes e outros veículos.</p>
-        </div>
-
-        <div class="grid">
-          <article class="card"><div class="icon">⚙</div><h3>Alternadores</h3><p>Diagnóstico, revisão e reparo de alternadores para linha pesada e veículos em geral.</p></article>
-          <article class="card"><div class="icon">🔑</div><h3>Motores de partida</h3><p>Diagnóstico e reparo de motores de arranque, com avaliação do sistema de partida.</p></article>
-          <article class="card"><div class="icon">🔋</div><h3>Baterias</h3><p>Teste, carga, substituição e suporte para baterias automotivas e de veículos pesados.</p></article>
-          <article class="card"><div class="icon">⚡</div><h3>Sistemas 12V e 24V</h3><p>Diagnóstico de falhas, fiação, circuitos, instalações e manutenção elétrica automotiva.</p></article>
-          <article class="card"><div class="icon">💡</div><h3>Iluminação e sinalização</h3><p>Lâmpadas, lanternas, sinaleiras, chicotes e reparos no sistema de iluminação.</p></article>
-          <article class="card"><div class="icon">🚛</div><h3>Elétrica de caminhões</h3><p>Atendimento especializado para caminhões Mercedes-Benz, Volvo, Scania e outras marcas.</p></article>
-          <article class="card"><div class="icon">🏗</div><h3>Máquinas e empilhadeiras</h3><p>Diagnóstico e manutenção elétrica para máquinas e equipamentos de trabalho.</p></article>
-          <article class="card"><div class="icon">🧰</div><h3>Peças e produtos</h3><p>Componentes elétricos, lâmpadas, sinaleiras, baterias e linha Vonixx.</p></article>
+        <div class="kicker">Serviços</div>
+        <h2>Elétrica automotiva com foco em quem trabalha pesado.</h2>
+        <p class="sub">Atendimento para caminhões, ônibus, vans, carretas, empilhadeiras, máquinas, motorhomes e outros veículos.</p>
+        <div class="services">
+          <article class="service"><div class="service-icon">⚙</div><h3>Alternadores</h3><p>Diagnóstico, revisão e reparo para linha pesada e veículos em geral.</p><span class="tag">Carga elétrica</span></article>
+          <article class="service"><div class="service-icon">🔑</div><h3>Motores de partida</h3><p>Diagnóstico e reparo de motores de arranque e sistema de partida.</p><span class="tag">Partida</span></article>
+          <article class="service"><div class="service-icon">🔋</div><h3>Baterias</h3><p>Teste, carga, substituição e suporte para baterias automotivas e pesadas.</p><span class="tag">Baterias</span></article>
+          <article class="service"><div class="service-icon">⚡</div><h3>Sistemas 12V e 24V</h3><p>Falhas, fiação, circuitos, instalações e manutenção elétrica automotiva.</p><span class="tag">12V / 24V</span></article>
+          <article class="service"><div class="service-icon">💡</div><h3>Iluminação e sinalização</h3><p>Lâmpadas, lanternas, sinaleiras, chicotes e reparos de iluminação.</p><span class="tag">Sinalização</span></article>
+          <article class="service"><div class="service-icon">🚛</div><h3>Elétrica de caminhões</h3><p>Mercedes-Benz, Volvo, Scania e outras marcas, conforme avaliação.</p><span class="tag">Linha pesada</span></article>
+          <article class="service"><div class="service-icon">🏗</div><h3>Máquinas e empilhadeiras</h3><p>Diagnóstico e manutenção elétrica para máquinas e equipamentos de trabalho.</p><span class="tag">Máquinas</span></article>
+          <article class="service"><div class="service-icon">🧰</div><h3>Peças e produtos</h3><p>Componentes elétricos, lâmpadas, sinaleiras, baterias e linha Vonixx.</p><span class="tag">Loja</span></article>
         </div>
       </div>
     </section>
 
-    <section id="empresa">
-      <div class="wrap split">
-        <div class="feature">
-          <div class="eyebrow">Auto Elétrica da Hora</div>
+    <section class="section" id="empresa">
+      <div class="wrap why-grid">
+        <div class="feature-card">
+          <div class="kicker">Desde 1978</div>
           <h2>Experiência que atravessa gerações.</h2>
-          <p style="color:var(--muted)">Uma oficina familiar em Canoas, atuando desde 1978 e especializada em soluções elétricas para quem depende do veículo para trabalhar.</p>
-          <div class="check"><div class="dot">✓</div><div><b>Especialização em Mercedes-Benz</b><br><span style="color:var(--muted)">Além de atendimento Volvo, Scania e outras marcas.</span></div></div>
-          <div class="check"><div class="dot">✓</div><div><b>Atendimento para frotas e empresas</b><br><span style="color:var(--muted)">Transportadoras, oficinas, máquinas e operações com veículos pesados.</span></div></div>
-          <div class="check"><div class="dot">✓</div><div><b>Loja + oficina</b><br><span style="color:var(--muted)">Serviços elétricos e venda de peças e produtos no mesmo local.</span></div></div>
-        </div>
-        <div class="feature">
-          <div class="eyebrow">Atendemos</div>
-          <h2>Do veículo individual à frota.</h2>
-          <div class="segments">
-            <span class="pill">🚛 Caminhões</span>
-            <span class="pill">🚌 Ônibus</span>
-            <span class="pill">🚐 Vans</span>
-            <span class="pill">🚚 Carretas</span>
-            <span class="pill">🏗 Máquinas</span>
-            <span class="pill">📦 Empilhadeiras</span>
-            <span class="pill">🏕 Motorhomes</span>
-            <span class="pill">🏢 Frotas empresariais</span>
-            <span class="pill">🔧 Oficinas parceiras</span>
+          <p class="sub" style="margin-bottom:0">Oficina familiar em Canoas, especializada em soluções elétricas para quem depende do veículo para trabalhar.</p>
+          <div class="checks">
+            <div class="check"><span class="checkmark">✓</span><div><strong>Especialização em Mercedes-Benz</strong><span>Também atendemos Volvo, Scania e outras marcas.</span></div></div>
+            <div class="check"><span class="checkmark">✓</span><div><strong>Atendimento para frotas e empresas</strong><span>Transportadoras, oficinas, máquinas e operações com veículos pesados.</span></div></div>
+            <div class="check"><span class="checkmark">✓</span><div><strong>Loja + oficina</strong><span>Serviços elétricos e venda de peças e produtos no mesmo local.</span></div></div>
           </div>
-          <div style="margin-top:30px">
+        </div>
+        <div class="feature-card">
+          <div class="kicker">Atendemos</div>
+          <h2>Do veículo individual à frota.</h2>
+          <p class="sub" style="margin-bottom:0">A estrutura foi pensada para atender tanto uma necessidade pontual quanto demandas recorrentes de empresas e parceiros.</p>
+          <div class="segments">
+            <span class="pill">🚛 Caminhões</span><span class="pill">🚌 Ônibus</span><span class="pill">🚐 Vans</span><span class="pill">🚚 Carretas</span>
+            <span class="pill">🏗 Máquinas</span><span class="pill">📦 Empilhadeiras</span><span class="pill">🏕 Motorhomes</span>
+            <span class="pill">🏢 Frotas empresariais</span><span class="pill">🔧 Oficinas parceiras</span>
+          </div>
+          <div class="buttons" style="margin-top:28px">
             <a class="btn btn-red" href="https://wa.me/5551981083080?text=Olá%21%20Tenho%20um%20veículo%20e%20preciso%20de%20avaliação%20elétrica." target="_blank" rel="noopener">Falar sobre meu veículo</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section class="section alt">
       <div class="wrap">
-        <div class="cta">
-          <div>
-            <h2>Problema elétrico no caminhão ou na frota?</h2>
-            <p>Envie uma mensagem com o modelo do veículo e o problema encontrado. Nossa equipe orienta o próximo passo.</p>
-          </div>
-          <a class="btn btn-yellow" href="https://wa.me/5551981083080?text=Olá%21%20Gostaria%20de%20uma%20avaliação%20para%20meu%20veículo." target="_blank" rel="noopener">💬 Chamar no WhatsApp</a>
+        <div class="kicker">Como funciona</div>
+        <h2>Atendimento simples e direto.</h2>
+        <p class="sub">Se o problema puder ser antecipado por mensagem, já chegamos mais preparados para a avaliação.</p>
+        <div class="steps">
+          <div class="step"><strong>Conte o problema</strong><p>Informe veículo, modelo e o sintoma percebido.</p></div>
+          <div class="step"><strong>Orientamos o próximo passo</strong><p>Indicamos se vale trazer o veículo e o que será verificado inicialmente.</p></div>
+          <div class="step"><strong>Fazemos o diagnóstico</strong><p>Avaliamos bateria, carga, partida, circuitos e componentes relacionados.</p></div>
+          <div class="step"><strong>Você decide</strong><p>Com a avaliação em mãos, alinhamos o serviço necessário.</p></div>
         </div>
       </div>
     </section>
 
-    <section id="contato">
+    <section class="section" id="faq">
+      <div class="wrap faq-grid">
+        <div>
+          <div class="kicker">Dúvidas frequentes</div>
+          <h2>Antes de trazer o veículo.</h2>
+          <p class="sub">Algumas respostas rápidas para facilitar o contato. Em caso de dúvida, mande uma mensagem.</p>
+          <a class="btn btn-yellow" href="https://wa.me/5551981083080?text=Olá%21%20Tenho%20uma%20dúvida%20sobre%20um%20serviço%20elétrico." target="_blank" rel="noopener">Perguntar no WhatsApp</a>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item"><button class="faq-q"><span>Vocês trabalham com caminhões?</span><span>+</span></button><div class="faq-a"><div>Sim. A oficina tem foco forte em veículos pesados e atende caminhões, além de outros veículos e máquinas.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span>Atendem sistemas 24V?</span><span>+</span></button><div class="faq-a"><div>Sim. Trabalhamos com sistemas 12V e 24V, conforme o veículo e o diagnóstico.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span>Fazem alternador e motor de partida?</span><span>+</span></button><div class="faq-a"><div>Sim. Realizamos diagnóstico, revisão e reparo desses componentes.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span>Precisa agendar?</span><span>+</span></button><div class="faq-a"><div>Para organizar melhor o atendimento, recomendamos confirmar pelo WhatsApp antes de se deslocar, especialmente para serviços específicos.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span>Atendem empresas e frotas?</span><span>+</span></button><div class="faq-a"><div>Sim. Atendemos demandas pontuais e recorrentes de empresas, transportadoras, oficinas e frotas.</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap"><div class="cta">
+        <div><h2>Problema elétrico no caminhão ou na frota?</h2><p>Envie o modelo do veículo e o problema percebido. Nossa equipe orienta o próximo passo e combina o atendimento.</p></div>
+        <a class="btn btn-yellow" href="https://wa.me/5551981083080?text=Olá%21%20Gostaria%20de%20uma%20avaliação%20para%20meu%20veículo." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      </div></div>
+    </section>
+
+    <section class="section" id="contato">
       <div class="wrap contact-grid">
         <div class="contact-box">
-          <div class="eyebrow">Contato</div>
-          <h2>Auto Elétrica da Hora</h2>
-          <div class="contact-row"><span>WhatsApp / Telefone</span><strong><a href="tel:+5551981083080">(51) 98108-3080</a></strong></div>
+          <div class="kicker">Contato</div><h2>Auto Elétrica da Hora</h2>
+          <div class="contact-row"><span>WhatsApp / telefone</span><strong><a href="tel:+5551981083080">(51) 98108-3080</a></strong></div>
           <div class="contact-row"><span>Endereço</span><strong>Rua Itu, 38 — Igara, Canoas/RS</strong></div>
           <div class="contact-row"><span>Instagram</span><strong><a href="https://www.instagram.com/autoeletricadahora" target="_blank" rel="noopener">@autoeletricadahora</a></strong></div>
-          <div class="hero-actions">
+          <div class="buttons" style="margin-top:20px">
             <a class="btn btn-yellow" href="https://wa.me/5551981083080" target="_blank" rel="noopener">WhatsApp</a>
-            <a class="btn btn-dark" href="https://maps.google.com/maps?cid=5728666617601848548" target="_blank" rel="noopener">Abrir no Google Maps</a>
+            <a class="btn btn-dark" href="https://maps.google.com/maps?cid=5728666617601848548" target="_blank" rel="noopener">Google Maps</a>
           </div>
         </div>
-
         <div class="contact-box">
-          <div class="eyebrow">Horários do Google</div>
-          <h2>Funcionamento</h2>
+          <div class="kicker">Horários do Google</div><h2>Funcionamento</h2>
           <div class="hours">
             <div>Segunda-feira</div><div>08:30–12:00 / 13:30–18:30</div>
             <div>Terça-feira</div><div>08:30–18:30</div>
@@ -361,18 +448,67 @@
             <div>Sábado</div><div>09:00–12:30</div>
             <div>Domingo</div><div>Fechado</div>
           </div>
-          <p style="color:var(--muted);font-size:13px;margin-top:20px">Para confirmar atendimento ou agendar um serviço, fale conosco pelo WhatsApp.</p>
+          <p style="color:var(--muted);font-size:12px;margin-top:19px">Para confirmar atendimento ou agendar um serviço, fale conosco pelo WhatsApp.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      © 2026 Auto Elétrica da Hora • Rua Itu, 38 — Igara, Canoas/RS • Desde 1978.
-    </div>
-  </footer>
+  <a class="wa-float" href="https://wa.me/5551981083080?text=Olá%21%20Vim%20pelo%20site%20da%20Auto%20Elétrica%20da%20Hora." target="_blank" rel="noopener" aria-label="Falar com a Auto Elétrica da Hora no WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.21c-.28-.14-1.65-.81-1.91-.91-.26-.09-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.16.19-.33.21-.61.07-.28-.14-1.18-.43-2.24-1.39-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.54-.87-2.11-.23-.55-.47-.48-.64-.49h-.54c-.19 0-.49.07-.75.35-.26.28-.99.97-.99 2.37s1.02 2.75 1.16 2.94c.14.19 2 3.05 4.84 4.28.68.29 1.2.47 1.62.6.68.22 1.3.19 1.79.12.55-.08 1.65-.68 1.89-1.33.23-.66.23-1.22.16-1.33-.07-.12-.26-.19-.54-.33zM16.04 4.8A11.05 11.05 0 0 0 6.6 21.63L5 27.2l5.71-1.5a11.1 11.1 0 1 0 5.33-20.9zm0 20.18c-1.76 0-3.49-.47-5-1.36l-.36-.21-3.39.89.9-3.3-.23-.34a9.08 9.08 0 1 1 8.08 4.32z"/></svg>
+  </a>
 
-  <a class="floating" href="https://wa.me/5551981083080?text=Olá%21%20Vim%20pelo%20site%20da%20Auto%20Elétrica%20da%20Hora." target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
+  <footer><div class="wrap foot">
+    <div>© 2026 Auto Elétrica da Hora · Rua Itu, 38 · Canoas/RS · Desde 1978</div>
+    <div class="foot-links"><a href="#servicos">Serviços</a><a href="https://www.instagram.com/autoeletricadahora" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/5551981083080" target="_blank" rel="noopener">WhatsApp</a></div>
+  </div></footer>
+
+  <script>
+    (() => {
+      const header = document.getElementById('siteHeader');
+      const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 20);
+      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+      const diag = {
+        partida:{title:'Falha de partida',text:'A avaliação costuma começar por bateria, cabos, alimentação e motor de partida.',msg:'Olá! Meu veículo não está pegando e quero uma avaliação.'},
+        bateria:{title:'Bateria descarregando',text:'É importante verificar bateria, alternador, consumo em repouso e conexões do sistema.',msg:'Olá! A bateria do meu veículo está descarregando e quero uma avaliação.'},
+        carga:{title:'Luz da bateria / sistema de carga',text:'Normalmente avaliamos alternador, regulador, bateria, correia e conexões elétricas.',msg:'Olá! A luz da bateria acendeu e quero uma avaliação do sistema de carga.'},
+        sinal:{title:'Falha de iluminação ou sinalização',text:'A avaliação pode envolver lâmpadas, sinaleiras, fusíveis, chicotes, aterramentos e comandos.',msg:'Olá! Estou com problema de iluminação/sinalização no veículo e quero uma avaliação.'}
+      };
+      const output = document.getElementById('diagOutput');
+      const link = document.getElementById('diagLink');
+      document.querySelectorAll('.symptom').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.symptom').forEach(x => x.classList.remove('active'));
+          btn.classList.add('active');
+          const d = diag[btn.dataset.key];
+          output.querySelector('strong').textContent = d.title;
+          output.querySelector('p').textContent = d.text;
+          link.href = 'https://wa.me/5551981083080?text=' + encodeURIComponent(d.msg);
+        });
+      });
+
+      document.querySelectorAll('.faq-q').forEach(q => {
+        q.addEventListener('click', () => {
+          const item = q.parentElement;
+          const answer = item.querySelector('.faq-a');
+          const open = item.classList.contains('open');
+          document.querySelectorAll('.faq-item.open').forEach(x => {
+            x.classList.remove('open'); x.querySelector('.faq-a').style.maxHeight = null;
+          });
+          if(!open){ item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+        });
+      });
+
+      const items = document.querySelectorAll('.section .wrap > *, .service, .step, .feature-card, .faq-item, .contact-box');
+      items.forEach((el,i) => { el.classList.add('reveal'); el.style.transitionDelay = Math.min((i % 4) * 55,165) + 'ms'; });
+      if('IntersectionObserver' in window){
+        const obs = new IntersectionObserver(entries => {
+          entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); obs.unobserve(entry.target); } });
+        }, {threshold:.10,rootMargin:'0px 0px -35px 0px'});
+        items.forEach(el => obs.observe(el));
+      } else { items.forEach(el => el.classList.add('visible')); }
+    })();
+  </script>
 </body>
 </html>
