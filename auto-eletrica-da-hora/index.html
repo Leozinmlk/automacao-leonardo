@@ -190,6 +190,64 @@
     }
     .step strong{font-size:14px}.step p{color:#9999a2;font-size:12.5px;margin:7px 0 0}
 
+
+    /* GALERIA REAL */
+    .gallery-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:28px}
+    .gallery-note{color:#8f8f99;font-size:12px;max-width:350px;text-align:right}
+    .gallery{
+      display:grid;grid-template-columns:1.25fr .8fr .8fr;grid-auto-rows:205px;gap:12px;
+    }
+    .photo{
+      position:relative;overflow:hidden;border-radius:20px;border:1px solid #303038;background:#151519;
+      box-shadow:0 16px 46px rgba(0,0,0,.18);cursor:zoom-in;
+    }
+    .photo:first-child{grid-row:span 2}
+    .photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.2,.7,.2,1),filter .3s ease}
+    .photo:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.38),transparent 48%);opacity:.75;pointer-events:none}
+    .photo:hover img{transform:scale(1.055);filter:brightness(1.06)}
+    .photo-badge{
+      position:absolute;left:12px;bottom:11px;z-index:2;padding:6px 9px;border-radius:999px;
+      background:rgba(7,7,9,.72);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(10px);
+      color:#f1f1f3;font-size:10px;font-weight:850;
+    }
+
+    /* AVALIAÇÕES */
+    .rating-strip{
+      display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+      padding:20px 22px;margin-bottom:18px;border:1px solid #35353d;border-radius:20px;
+      background:linear-gradient(135deg,#1b1a12,#151519);
+    }
+    .rating-big{display:flex;align-items:center;gap:14px}
+    .rating-big strong{font-size:36px;line-height:1;color:var(--yellow);letter-spacing:-.04em}
+    .rating-big span{display:block;color:#aaaab3;font-size:12px}
+    .rating-stars{color:var(--yellow);letter-spacing:2px;font-size:17px}
+    .reviews{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .review{
+      position:relative;padding:22px;border:1px solid #303038;border-radius:20px;
+      background:linear-gradient(180deg,#18181d,#121216);min-height:230px;
+      transition:.24s transform,.24s border-color,.24s box-shadow;
+    }
+    .review:hover{transform:translateY(-6px);border-color:#414149;box-shadow:0 22px 55px rgba(0,0,0,.24)}
+    .review .stars{color:var(--yellow);letter-spacing:2px;font-size:13px}
+    .review blockquote{margin:15px 0 18px;color:#d7d7dc;font-size:13.5px;line-height:1.65}
+    .review footer{padding:0;border:0;background:none;color:#96969f;font-size:11.5px}
+    .review footer strong{display:block;color:#fff;font-size:12.5px;margin-bottom:2px}
+    .review:before{
+      content:"“";position:absolute;right:17px;top:5px;font-size:52px;line-height:1;color:rgba(255,212,0,.08);
+      font-family:Georgia,serif;
+    }
+
+    .lightbox{
+      position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.88);display:none;place-items:center;padding:24px;
+      backdrop-filter:blur(10px);
+    }
+    .lightbox.open{display:grid}
+    .lightbox img{max-width:min(1080px,95vw);max-height:88vh;border-radius:18px;box-shadow:0 30px 100px rgba(0,0,0,.55)}
+    .lightbox button{
+      position:absolute;right:22px;top:18px;width:43px;height:43px;border-radius:50%;border:1px solid rgba(255,255,255,.18);
+      background:rgba(20,20,24,.78);color:#fff;font-size:24px;cursor:pointer;
+    }
+
     .faq-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:28px;align-items:start}
     .faq-list{display:grid;gap:10px}
     .faq-item{border:1px solid #303038;border-radius:16px;background:#151519;overflow:hidden}
@@ -235,7 +293,9 @@
     @media(max-width:980px){
       .hero-grid,.why-grid,.faq-grid{grid-template-columns:1fr}
       .hero-card{transform:none;max-width:720px}
-      .services,.steps{grid-template-columns:repeat(2,1fr)}
+      .services,.steps,.reviews{grid-template-columns:repeat(2,1fr)}
+      .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:210px}.photo:first-child{grid-row:span 1;grid-column:span 2}
+      .gallery-head{align-items:flex-start;flex-direction:column}.gallery-note{text-align:left}
       .steps:before{display:none}
       .navlinks>a:not(.btn){display:none}
     }
@@ -247,7 +307,8 @@
       .hero{padding:58px 0 52px}.hero-grid{gap:34px}.hero-card{padding:20px;border-radius:22px}
       h1{font-size:clamp(43px,13vw,60px)}.lead{font-size:16px}.buttons{display:grid;grid-template-columns:1fr}.btn{width:100%}
       .metrics{grid-template-columns:repeat(3,1fr)}.metric{padding:11px 5px}.metric strong{font-size:17px}
-      .services,.steps{grid-template-columns:1fr}.section{padding:62px 0}
+      .services,.steps,.reviews{grid-template-columns:1fr}.section{padding:62px 0}
+      .gallery{grid-template-columns:1fr;grid-auto-rows:240px}.photo:first-child{grid-column:span 1}.gallery-note{font-size:11px}
       .cta{padding:29px;flex-direction:column;align-items:flex-start}
       .contact-grid{grid-template-columns:1fr}
       .hours{grid-template-columns:1fr}.hours div:nth-child(even){margin-bottom:6px}
@@ -269,6 +330,7 @@
     "telephone":"+55 51 98108-3080",
     "address":{"@type":"PostalAddress","streetAddress":"Rua Itu, 38","addressLocality":"Canoas","addressRegion":"RS","postalCode":"92410-130","addressCountry":"BR"},
     "sameAs":["https://www.instagram.com/autoeletricadahora","https://www.facebook.com/autoeletricadahora"],
+    "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"27"},
     "openingHoursSpecification":[
       {"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"08:30","closes":"12:00"},
       {"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"13:30","closes":"18:30"},
@@ -296,7 +358,7 @@
       <nav>
         <a class="brand" href="#inicio"><span class="brand-bolt">⚡</span><span>AUTO ELÉTRICA DA HORA<small>DESDE 1978 · CANOAS/RS</small></span></a>
         <div class="navlinks">
-          <a href="#servicos">Serviços</a><a href="#empresa">A empresa</a><a href="#faq">Dúvidas</a><a href="#contato">Contato</a>
+          <a href="#servicos">Serviços</a><a href="#empresa">A empresa</a><a href="#fotos">Fotos</a><a href="#avaliacoes">Avaliações</a><a href="#faq">Dúvidas</a><a href="#contato">Contato</a>
           <a class="btn btn-yellow" href="https://wa.me/5551981083080?text=Olá%21%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </nav>
@@ -386,6 +448,65 @@
       </div>
     </section>
 
+
+    <section class="section alt" id="fotos">
+      <div class="wrap">
+        <div class="gallery-head">
+          <div>
+            <div class="kicker">Fotos reais</div>
+            <h2>Veja de perto a Auto Elétrica da Hora.</h2>
+            <p class="sub" style="margin-bottom:0">Uma seleção de fotos reais já publicadas no nosso Perfil da Empresa no Google.</p>
+          </div>
+          <div class="gallery-note">Clique em qualquer imagem para ampliar. As fotos são do próprio perfil público da empresa no Google.</div>
+        </div>
+        <div class="gallery">
+          <div class="photo"><img loading="lazy" src="https://lh3.googleusercontent.com/WEGXporvsapKsvME1w8h9VIxW7EsPAwuMkEB0n-zsFKzL0K8YNwkEnQItl6KwpZjCB6tmEOe-rqmg2KkNw=s0" alt="Foto real da Auto Elétrica da Hora no Google"><span class="photo-badge">Auto Elétrica da Hora</span></div>
+          <div class="photo"><img loading="lazy" src="https://lh3.googleusercontent.com/96I3vVsyT3ud164yQlOT5O7tuQZBTud9sew_5iDcY9tgF3rjzHZTgZDCpp-sMrldN2UfHvVU60aLxoxISg=s0" alt="Foto real da Auto Elétrica da Hora no Google"><span class="photo-badge">Foto real</span></div>
+          <div class="photo"><img loading="lazy" src="https://lh3.googleusercontent.com/yUsqeHAT3Ow-f_y0Xw8WI7WqAx8bMljyuksO34iLrg6adQGfGdoCL-jSAhKXLZ87YHgvCwMcmQrMFbHaXg=s0" alt="Foto real da Auto Elétrica da Hora no Google"><span class="photo-badge">Perfil no Google</span></div>
+          <div class="photo"><img loading="lazy" src="https://lh3.googleusercontent.com/hJXzLEzksNj5PB3-TnOWzMezuMz6IBvfM8bUFFTLFlCu4kXxfH5IvW85RiT_GJwQ-iMa1_z6E7U_IPrTLg=s0" alt="Foto real da Auto Elétrica da Hora no Google"><span class="photo-badge">Foto real</span></div>
+          <div class="photo"><img loading="lazy" src="https://lh3.googleusercontent.com/x2jY8qfqT1Kj3BeFHApwrwRO8Gq5raT8y98k6ZhfD0d5VeDiS-VdxBAftQN0MF3mwkgnmpGmGytwefKxgQ=s0" alt="Foto real da Auto Elétrica da Hora no Google"><span class="photo-badge">Autoelétrica</span></div>
+          <div class="photo"><img loading="lazy" src="https://lh3.googleusercontent.com/-m_kPGJszhG3lWS3IpN1oQy2scIisngPLnSxeIq30T23fkdTvY-zf5l6qJD9GkLS1OvVB3Zz87iMH73Ckw=s0" alt="Foto real da Auto Elétrica da Hora no Google"><span class="photo-badge">Canoas/RS</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="avaliacoes">
+      <div class="wrap">
+        <div class="kicker">Quem já conhece</div>
+        <h2>Confiança construída no atendimento.</h2>
+        <p class="sub">Avaliações reais publicadas por clientes no Google. Selecionamos comentários que representam bem o tipo de atendimento que queremos manter.</p>
+        <div class="rating-strip">
+          <div class="rating-big">
+            <strong>4,8</strong>
+            <div><div class="rating-stars">★★★★★</div><span>média no Google · 27 avaliações</span></div>
+          </div>
+          <a class="btn btn-dark" href="https://maps.google.com/maps?cid=5728666617601848548" target="_blank" rel="noopener">Ver perfil no Google</a>
+        </div>
+        <div class="reviews">
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <blockquote>“Atendimento de qualidade, preço justo, pessoas honestas! Atende à nossa frota e não tenho do que reclamar.”</blockquote>
+            <footer><strong>Vinicius Kappler</strong>Cliente · avaliação no Google</footer>
+          </article>
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <blockquote>“Oficina super honesta. Achei que era alternador e me disseram que estava bom, que eu só deveria trocar a bateria.”</blockquote>
+            <footer><strong>Gilberto Medina</strong>Cliente · avaliação no Google</footer>
+          </article>
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <blockquote>“Especialista em caminhões!”</blockquote>
+            <footer><strong>Iury Rostirolla</strong>Cliente · avaliação no Google</footer>
+          </article>
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <blockquote>“Excelente oficina, profissionais qualificados, atendimento top. Sempre que preciso vou lá.”</blockquote>
+            <footer><strong>Vinicius Moscarelli</strong>Cliente · avaliação no Google</footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section alt">
       <div class="wrap">
         <div class="kicker">Como funciona</div>
@@ -454,6 +575,8 @@
     </section>
   </main>
 
+  <div class="lightbox" id="lightbox" aria-hidden="true"><button id="lightboxClose" aria-label="Fechar imagem">×</button><img id="lightboxImg" alt="Foto ampliada da Auto Elétrica da Hora"></div>
+
   <a class="wa-float" href="https://wa.me/5551981083080?text=Olá%21%20Vim%20pelo%20site%20da%20Auto%20Elétrica%20da%20Hora." target="_blank" rel="noopener" aria-label="Falar com a Auto Elétrica da Hora no WhatsApp">
     <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.21c-.28-.14-1.65-.81-1.91-.91-.26-.09-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.16.19-.33.21-.61.07-.28-.14-1.18-.43-2.24-1.39-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.54-.87-2.11-.23-.55-.47-.48-.64-.49h-.54c-.19 0-.49.07-.75.35-.26.28-.99.97-.99 2.37s1.02 2.75 1.16 2.94c.14.19 2 3.05 4.84 4.28.68.29 1.2.47 1.62.6.68.22 1.3.19 1.79.12.55-.08 1.65-.68 1.89-1.33.23-.66.23-1.22.16-1.33-.07-.12-.26-.19-.54-.33zM16.04 4.8A11.05 11.05 0 0 0 6.6 21.63L5 27.2l5.71-1.5a11.1 11.1 0 1 0 5.33-20.9zm0 20.18c-1.76 0-3.49-.47-5-1.36l-.36-.21-3.39.89.9-3.3-.23-.34a9.08 9.08 0 1 1 8.08 4.32z"/></svg>
   </a>
@@ -488,6 +611,20 @@
         });
       });
 
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const closeLightbox = () => { lightbox.classList.remove('open'); lightbox.setAttribute('aria-hidden','true'); };
+      document.querySelectorAll('.photo img').forEach(img => {
+        img.parentElement.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightbox.classList.add('open');
+          lightbox.setAttribute('aria-hidden','false');
+        });
+      });
+      document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', e => { if(e.target === lightbox) closeLightbox(); });
+      document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+
       document.querySelectorAll('.faq-q').forEach(q => {
         q.addEventListener('click', () => {
           const item = q.parentElement;
@@ -500,7 +637,7 @@
         });
       });
 
-      const items = document.querySelectorAll('.section .wrap > *, .service, .step, .feature-card, .faq-item, .contact-box');
+      const items = document.querySelectorAll('.section .wrap > *, .service, .step, .feature-card, .faq-item, .contact-box, .photo, .review');
       items.forEach((el,i) => { el.classList.add('reveal'); el.style.transitionDelay = Math.min((i % 4) * 55,165) + 'ms'; });
       if('IntersectionObserver' in window){
         const obs = new IntersectionObserver(entries => {
