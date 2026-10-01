@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Auto Elétrica da Hora | Elétrica Pesada em Canoas/RS</title>
+  <meta name="description" content="Auto Elétrica da Hora, em Canoas/RS. Desde 1978 com elétrica automotiva para caminhões, veículos pesados, semipesados e máquinas. Sistemas 12V/24V, alternadores, motores de partida, baterias, iluminação e sinalização." />
+  <meta name="theme-color" content="#111111" />
+  <meta property="og:title" content="Auto Elétrica da Hora | Elétrica Pesada em Canoas/RS" />
+  <meta property="og:description" content="Desde 1978 com elétrica automotiva para caminhões, veículos pesados, semipesados e máquinas." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root{
+      --bg:#0d0d0f;
+      --panel:#17171b;
+      --panel2:#202026;
+      --text:#f7f7f7;
+      --muted:#b7b7bd;
+      --yellow:#ffd400;
+      --red:#e32323;
+      --line:#2d2d34;
+      --ok:#21c55d;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,Segoe UI,Arial,sans-serif;
+      background:
+        radial-gradient(circle at 80% 0%, rgba(227,35,35,.14), transparent 28rem),
+        radial-gradient(circle at 10% 10%, rgba(255,212,0,.08), transparent 25rem),
+        var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:auto;padding:0 22px}
+    .topbar{
+      background:#070708;
+      border-bottom:1px solid var(--line);
+      font-size:14px;
+      color:#ddd;
+    }
+    .topbar .wrap{display:flex;gap:18px;justify-content:space-between;align-items:center;min-height:40px;flex-wrap:wrap}
+    .topbar .mini{display:flex;gap:18px;flex-wrap:wrap}
+    header{
+      position:sticky;top:0;z-index:20;
+      backdrop-filter:blur(14px);
+      background:rgba(13,13,15,.88);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.2px}
+    .bolt{
+      width:42px;height:42px;border-radius:12px;
+      background:linear-gradient(135deg,var(--yellow),#ffef76);
+      display:grid;place-items:center;color:#111;font-size:25px;box-shadow:0 8px 30px rgba(255,212,0,.18)
+    }
+    .brand small{display:block;color:var(--muted);font-size:11px;letter-spacing:1.4px;font-weight:700}
+    .links{display:flex;gap:22px;align-items:center;color:#ddd;font-size:14px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      min-height:48px;padding:0 20px;border-radius:12px;font-weight:800;
+      transition:.2s transform,.2s opacity,.2s box-shadow;border:1px solid transparent;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-yellow{background:var(--yellow);color:#111;box-shadow:0 10px 30px rgba(255,212,0,.18)}
+    .btn-dark{background:#1d1d22;border-color:#393941;color:#fff}
+    .btn-red{background:var(--red);color:#fff}
+    .hero{padding:84px 0 58px;position:relative;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:52px;align-items:center}
+    .eyebrow{color:var(--yellow);font-weight:900;text-transform:uppercase;letter-spacing:2px;font-size:13px}
+    h1{font-size:clamp(44px,6vw,78px);line-height:.98;margin:14px 0 24px;letter-spacing:-3px}
+    h1 span{color:var(--yellow)}
+    .lead{font-size:20px;color:#d6d6db;max-width:740px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .trust{display:flex;gap:24px;flex-wrap:wrap;margin-top:30px;color:#d7d7dc;font-size:14px}
+    .trust b{color:#fff}
+    .hero-card{
+      background:linear-gradient(160deg,#222228,#121216);
+      border:1px solid #34343b;border-radius:28px;padding:28px;position:relative;overflow:hidden;
+      box-shadow:0 30px 80px rgba(0,0,0,.35)
+    }
+    .hero-card:before{
+      content:"";position:absolute;width:220px;height:220px;border-radius:50%;
+      background:rgba(255,212,0,.1);right:-80px;top:-80px;filter:blur(4px)
+    }
+    .hero-card .truck{
+      min-height:235px;border-radius:20px;
+      background:
+        linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.7)),
+        linear-gradient(130deg,#37373e,#17171b 58%,#2d2d32);
+      border:1px solid #3b3b43;
+      display:flex;align-items:flex-end;padding:24px;
+      position:relative;overflow:hidden;
+    }
+    .truck .graphic{
+      position:absolute;inset:0;display:grid;place-items:center;font-size:116px;opacity:.18;transform:rotate(-8deg)
+    }
+    .truck .copy{position:relative;z-index:2}
+    .truck .copy strong{display:block;font-size:27px}
+    .truck .copy span{color:#d4d4d7}
+    .numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+    .num{background:#111115;border:1px solid #303037;border-radius:16px;padding:16px;text-align:center}
+    .num strong{display:block;font-size:22px;color:var(--yellow)}
+    .num span{font-size:12px;color:var(--muted)}
+    section{padding:72px 0}
+    .section-head{max-width:760px;margin-bottom:34px}
+    .section-head h2{font-size:clamp(32px,4vw,48px);line-height:1.05;margin:8px 0 12px;letter-spacing:-1.7px}
+    .section-head p{color:var(--muted);font-size:17px}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .card{
+      background:linear-gradient(180deg,var(--panel),#121216);
+      border:1px solid var(--line);border-radius:18px;padding:22px;min-height:200px;
+    }
+    .icon{
+      width:44px;height:44px;border-radius:12px;background:rgba(255,212,0,.1);
+      border:1px solid rgba(255,212,0,.25);display:grid;place-items:center;color:var(--yellow);font-size:22px
+    }
+    .card h3{margin:18px 0 8px;font-size:18px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .feature{
+      background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:28px
+    }
+    .check{display:flex;gap:13px;align-items:flex-start;margin:15px 0;color:#ddd}
+    .dot{width:24px;height:24px;flex:0 0 24px;border-radius:50%;background:rgba(33,197,93,.13);color:#6ee79a;display:grid;place-items:center;font-weight:900}
+    .segments{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+    .pill{border:1px solid #34343b;background:#17171b;border-radius:999px;padding:10px 14px;color:#ddd;font-size:14px}
+    .cta{
+      background:
+        linear-gradient(100deg,rgba(227,35,35,.24),transparent 45%),
+        linear-gradient(160deg,#202026,#111115);
+      border:1px solid #3b3b43;border-radius:28px;padding:42px;
+      display:flex;justify-content:space-between;gap:28px;align-items:center
+    }
+    .cta h2{font-size:clamp(30px,4vw,47px);line-height:1.03;margin:0 0 12px;letter-spacing:-1.6px}
+    .cta p{margin:0;color:#c8c8ce;max-width:680px}
+    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+    .contact-box{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:28px}
+    .contact-row{padding:14px 0;border-bottom:1px solid var(--line)}
+    .contact-row:last-child{border-bottom:0}
+    .contact-row span{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1px}
+    .contact-row strong{font-size:17px}
+    .hours{display:grid;grid-template-columns:1fr auto;gap:10px;color:#ddd;font-size:14px}
+    .hours div:nth-child(even){color:#fff;font-weight:700}
+    footer{padding:28px 0 100px;color:#9d9da4;font-size:13px}
+    .floating{
+      position:fixed;right:20px;bottom:20px;z-index:25;
+      background:#25D366;color:#082511;border-radius:999px;
+      padding:14px 18px;font-weight:900;box-shadow:0 16px 40px rgba(37,211,102,.25)
+    }
+    .highlight{color:var(--yellow)}
+    @media (max-width:900px){
+      .links a:not(.nav-cta){display:none}
+      .hero-grid,.split,.contact-grid{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .hero{padding-top:54px}
+      .cta{align-items:flex-start;flex-direction:column}
+    }
+    @media (max-width:560px){
+      .topbar .wrap{padding-top:7px;padding-bottom:7px}
+      .topbar .mini span:nth-child(2){display:none}
+      nav{height:66px}
+      h1{letter-spacing:-2px}
+      .lead{font-size:17px}
+      .grid{grid-template-columns:1fr}
+      .numbers{grid-template-columns:1fr 1fr 1fr}
+      .num{padding:12px 8px}
+      .hero-card{padding:16px}
+      section{padding:52px 0}
+      .cta{padding:28px}
+      .floating{left:14px;right:14px;text-align:center}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":["AutoRepair","LocalBusiness"],
+    "name":"Auto Elétrica da Hora",
+    "description":"Auto elétrica em Canoas/RS especializada em veículos pesados, semipesados e máquinas. Sistemas 12V/24V, alternadores, motores de partida, baterias, iluminação e sinalização.",
+    "telephone":"+55 51 98108-3080",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Rua Itu, 38",
+      "addressLocality":"Canoas",
+      "addressRegion":"RS",
+      "postalCode":"92410-130",
+      "addressCountry":"BR"
+    },
+    "sameAs":[
+      "https://www.instagram.com/autoeletricadahora",
+      "https://www.facebook.com/autoeletricadahora"
+    ],
+    "openingHoursSpecification":[
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"08:30","closes":"12:00"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"13:30","closes":"18:30"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Tuesday","opens":"08:30","closes":"18:30"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Wednesday","opens":"08:30","closes":"12:00"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Wednesday","opens":"13:30","closes":"18:30"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Thursday","opens":"08:30","closes":"18:30"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"08:30","closes":"12:00"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"13:30","closes":"18:30"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"12:30"}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="mini">
+        <span>📍 Rua Itu, 38 — Igara, Canoas/RS</span>
+        <span>🕒 Seg–Sex • Sáb até 12h30</span>
+      </div>
+      <a href="tel:+5551981083080">📞 (51) 98108-3080</a>
+    </div>
+  </div>
+
+  <header>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="#inicio">
+          <div class="bolt">⚡</div>
+          <div>AUTO ELÉTRICA DA HORA<small>DESDE 1978 • CANOAS/RS</small></div>
+        </a>
+        <div class="links">
+          <a href="#servicos">Serviços</a>
+          <a href="#empresa">A empresa</a>
+          <a href="#contato">Contato</a>
+          <a class="btn btn-yellow nav-cta" href="https://wa.me/5551981083080?text=Olá%21%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Autoelétrica especializada em veículos pesados</div>
+          <h1>ELÉTRICA PESADA.<br><span>DESDE 1978.</span></h1>
+          <p class="lead">Diagnóstico e manutenção elétrica para caminhões, veículos pesados, semipesados e máquinas em Canoas/RS. Especialistas em Mercedes-Benz e atendimento multimarcas.</p>
+          <div class="hero-actions">
+            <a class="btn btn-yellow" href="https://wa.me/5551981083080?text=Olá%21%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener">💬 Solicitar orçamento</a>
+            <a class="btn btn-dark" href="https://maps.google.com/maps?cid=5728666617601848548" target="_blank" rel="noopener">📍 Como chegar</a>
+          </div>
+          <div class="trust">
+            <span>✓ <b>48 anos</b> de atuação</span>
+            <span>✓ Sistemas <b>12V e 24V</b></span>
+            <span>✓ Linha pesada e <b>multimarcas</b></span>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="truck">
+            <div class="graphic">🚛⚡</div>
+            <div class="copy">
+              <strong>Seu caminhão precisa de elétrica?</strong>
+              <span>Fale direto com nossa equipe e descreva o problema.</span>
+            </div>
+          </div>
+          <div class="numbers">
+            <div class="num"><strong>1978</strong><span>desde</span></div>
+            <div class="num"><strong>12/24V</strong><span>sistemas</span></div>
+            <div class="num"><strong>4,8★</strong><span>Google</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Serviços</div>
+          <h2>Elétrica automotiva com foco em linha pesada</h2>
+          <p>Atendimento para caminhões, ônibus, vans, carretas, empilhadeiras, máquinas, motorhomes e outros veículos.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card"><div class="icon">⚙</div><h3>Alternadores</h3><p>Diagnóstico, revisão e reparo de alternadores para linha pesada e veículos em geral.</p></article>
+          <article class="card"><div class="icon">🔑</div><h3>Motores de partida</h3><p>Diagnóstico e reparo de motores de arranque, com avaliação do sistema de partida.</p></article>
+          <article class="card"><div class="icon">🔋</div><h3>Baterias</h3><p>Teste, carga, substituição e suporte para baterias automotivas e de veículos pesados.</p></article>
+          <article class="card"><div class="icon">⚡</div><h3>Sistemas 12V e 24V</h3><p>Diagnóstico de falhas, fiação, circuitos, instalações e manutenção elétrica automotiva.</p></article>
+          <article class="card"><div class="icon">💡</div><h3>Iluminação e sinalização</h3><p>Lâmpadas, lanternas, sinaleiras, chicotes e reparos no sistema de iluminação.</p></article>
+          <article class="card"><div class="icon">🚛</div><h3>Elétrica de caminhões</h3><p>Atendimento especializado para caminhões Mercedes-Benz, Volvo, Scania e outras marcas.</p></article>
+          <article class="card"><div class="icon">🏗</div><h3>Máquinas e empilhadeiras</h3><p>Diagnóstico e manutenção elétrica para máquinas e equipamentos de trabalho.</p></article>
+          <article class="card"><div class="icon">🧰</div><h3>Peças e produtos</h3><p>Componentes elétricos, lâmpadas, sinaleiras, baterias e linha Vonixx.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="empresa">
+      <div class="wrap split">
+        <div class="feature">
+          <div class="eyebrow">Auto Elétrica da Hora</div>
+          <h2>Experiência que atravessa gerações.</h2>
+          <p style="color:var(--muted)">Uma oficina familiar em Canoas, atuando desde 1978 e especializada em soluções elétricas para quem depende do veículo para trabalhar.</p>
+          <div class="check"><div class="dot">✓</div><div><b>Especialização em Mercedes-Benz</b><br><span style="color:var(--muted)">Além de atendimento Volvo, Scania e outras marcas.</span></div></div>
+          <div class="check"><div class="dot">✓</div><div><b>Atendimento para frotas e empresas</b><br><span style="color:var(--muted)">Transportadoras, oficinas, máquinas e operações com veículos pesados.</span></div></div>
+          <div class="check"><div class="dot">✓</div><div><b>Loja + oficina</b><br><span style="color:var(--muted)">Serviços elétricos e venda de peças e produtos no mesmo local.</span></div></div>
+        </div>
+        <div class="feature">
+          <div class="eyebrow">Atendemos</div>
+          <h2>Do veículo individual à frota.</h2>
+          <div class="segments">
+            <span class="pill">🚛 Caminhões</span>
+            <span class="pill">🚌 Ônibus</span>
+            <span class="pill">🚐 Vans</span>
+            <span class="pill">🚚 Carretas</span>
+            <span class="pill">🏗 Máquinas</span>
+            <span class="pill">📦 Empilhadeiras</span>
+            <span class="pill">🏕 Motorhomes</span>
+            <span class="pill">🏢 Frotas empresariais</span>
+            <span class="pill">🔧 Oficinas parceiras</span>
+          </div>
+          <div style="margin-top:30px">
+            <a class="btn btn-red" href="https://wa.me/5551981083080?text=Olá%21%20Tenho%20um%20veículo%20e%20preciso%20de%20avaliação%20elétrica." target="_blank" rel="noopener">Falar sobre meu veículo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="cta">
+          <div>
+            <h2>Problema elétrico no caminhão ou na frota?</h2>
+            <p>Envie uma mensagem com o modelo do veículo e o problema encontrado. Nossa equipe orienta o próximo passo.</p>
+          </div>
+          <a class="btn btn-yellow" href="https://wa.me/5551981083080?text=Olá%21%20Gostaria%20de%20uma%20avaliação%20para%20meu%20veículo." target="_blank" rel="noopener">💬 Chamar no WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="wrap contact-grid">
+        <div class="contact-box">
+          <div class="eyebrow">Contato</div>
+          <h2>Auto Elétrica da Hora</h2>
+          <div class="contact-row"><span>WhatsApp / Telefone</span><strong><a href="tel:+5551981083080">(51) 98108-3080</a></strong></div>
+          <div class="contact-row"><span>Endereço</span><strong>Rua Itu, 38 — Igara, Canoas/RS</strong></div>
+          <div class="contact-row"><span>Instagram</span><strong><a href="https://www.instagram.com/autoeletricadahora" target="_blank" rel="noopener">@autoeletricadahora</a></strong></div>
+          <div class="hero-actions">
+            <a class="btn btn-yellow" href="https://wa.me/5551981083080" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn btn-dark" href="https://maps.google.com/maps?cid=5728666617601848548" target="_blank" rel="noopener">Abrir no Google Maps</a>
+          </div>
+        </div>
+
+        <div class="contact-box">
+          <div class="eyebrow">Horários do Google</div>
+          <h2>Funcionamento</h2>
+          <div class="hours">
+            <div>Segunda-feira</div><div>08:30–12:00 / 13:30–18:30</div>
+            <div>Terça-feira</div><div>08:30–18:30</div>
+            <div>Quarta-feira</div><div>08:30–12:00 / 13:30–18:30</div>
+            <div>Quinta-feira</div><div>08:30–18:30</div>
+            <div>Sexta-feira</div><div>08:30–12:00 / 13:30–18:30</div>
+            <div>Sábado</div><div>09:00–12:30</div>
+            <div>Domingo</div><div>Fechado</div>
+          </div>
+          <p style="color:var(--muted);font-size:13px;margin-top:20px">Para confirmar atendimento ou agendar um serviço, fale conosco pelo WhatsApp.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © 2026 Auto Elétrica da Hora • Rua Itu, 38 — Igara, Canoas/RS • Desde 1978.
+    </div>
+  </footer>
+
+  <a class="floating" href="https://wa.me/5551981083080?text=Olá%21%20Vim%20pelo%20site%20da%20Auto%20Elétrica%20da%20Hora." target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
+</body>
+</html>
