@@ -1,0 +1,27 @@
+name: TEMP ROTAS v2.5.0 HANDOFF
+on:
+  push:
+    branches: [rotas-v250-temp-handoff]
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish temporary transport release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          URL_B64: aHR0cHM6Ly9yZWxlYXNlLWFzc2V0cy5naXRodWJ1c2VyY29udGVudC5jb20vZ2l0aHViLXByb2R1Y3Rpb24tcmVsZWFzZS1hc3NldC84NTAzNDk0MjEvZjEwOGI0OTgtMWZhYy00NjhlLTljOTYtODEyMjAzOTUyN2I1P3NwPXImc3Y9MjAxOC0xMS0wOSZzcj1iJnNwcj1odHRwcyZzZT0yMDI2LTEwLTI5VDIyJTNBNTklM0EzOFomcnNjZD1hdHRhY2htZW50JTNCK2ZpbGVuYW1lJTNEUk9UQVNfUHJvZml0X1BpbG90X3YyLjUuMF9GSU5BTC5hcGsmcnNjdD1hcHBsaWNhdGlvbiUyRnZuZC5hbmRyb2lkLnBhY2thZ2UtYXJjaGl2ZSZza29pZD05NmMyZDQxMC01NzExLTQzYTEtYWVkZC1hYjE5NDdhYTdhYjAmc2t0aWQ9Mzk4YTY2NTQtOTk3Yi00N2U5LWIxMmItOTUxNWI4OTZiNGRlJnNrdD0yMDI2LTEwLTI5VDIxJTNBNTglM0E0MFomc2tlPTIwMjYtMTAtMjlUMjIlM0E1OSUzQTM4WiZza3M9YiZza3Y9MjAxOC0xMS0wOSZzaWc9bkZNZkhBWTY5VSUyRlVKT2duTCUyRmg3NXEwM2pyY21mVWZlYmV5WDdGOVRsbzQlM0Qmand0PWV5SjBlWEFpT2lKS1YxUWlMQ0poYkdjaU9pSklVekkxTmlKOS5leUpwYzNNaU9pSm5hWFJvZFdJdVkyOXRJaXdpWVhWa0lqb2ljbVZzWldGelpTMWhjM05sZEhNdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRJaXdpYTJWNUlqb2lhMlY1TVNJc0ltVjRjQ0k2TVRjNU16TXhNekV3TWl3aWJtSm1Jam94Tnprek16RXhNekF5TENKd1lYUm9Jam9pY21Wc1pXRnpaV0Z6YzJWMGNISnZaSFZqZEdsdmJpNWliRzlpTG1OdmNtVXVkMmx1Wkc5M2N5NXVaWFFpZlEuQUJieEdWczU5VHlheFU1bkx1VkQ0LTV1VzdtYi1CNFJWUjlEQ0NTWGxudyZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWF0dGFjaG1lbnQlM0IlMjBmaWxlbmFtZSUzRFJPVEFTX1Byb2ZpdF9QaWxvdF92Mi41LjBfRklOQUwuYXBrJnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1hcHBsaWNhdGlvbiUyRnZuZC5hbmRyb2lkLnBhY2thZ2UtYXJjaGl2ZQ==
+        run: |
+          set -euo pipefail
+          URL="$(printf '%s' "$URL_B64" | base64 -d)"
+          APK=/tmp/ROTAS_Profit_Pilot_v2.5.0_FINAL.apk
+          curl -fL --retry 3 --retry-delay 2 "$URL" -o "$APK"
+          echo '69cce3f93362ee4b4599288c564296c94dbd19f6a418879f1b91327bef3ef81c  /tmp/ROTAS_Profit_Pilot_v2.5.0_FINAL.apk' | sha256sum -c -
+          TAG=rotas-v250-temp-transfer
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release delete "$TAG" --repo "$GITHUB_REPOSITORY" --cleanup-tag -y
+          fi
+          gh release create "$TAG" "$APK" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title 'Temporary ROTA$ v2.5.0 transfer' --notes 'Temporary transport asset for direct ChatGPT handoff.'
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json url,assets
