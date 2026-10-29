@@ -1,0 +1,25 @@
+name: PUBLIC ROTAS v2.5.0 CHAT ARTIFACT
+on:
+  push:
+    branches: [rotas-v250-temp-handoff]
+permissions:
+  contents: read
+jobs:
+  artifact:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Download temporary public release APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/apk
+          gh release download rotas-v250-temp-transfer --repo "$GITHUB_REPOSITORY"             --pattern 'ROTAS_Profit_Pilot_v2.5.0_FINAL.apk' --dir /tmp/apk
+          echo '8dcc49e095006f61bb9ce746cb2d0660944e19d03d05e7472f4447c811849b51  /tmp/apk/ROTAS_Profit_Pilot_v2.5.0_FINAL.apk' | sha256sum -c -
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ROTAS-v2.5.0-DIRECT
+          path: /tmp/apk/ROTAS_Profit_Pilot_v2.5.0_FINAL.apk
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 0
