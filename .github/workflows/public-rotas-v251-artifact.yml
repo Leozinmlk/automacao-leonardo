@@ -1,0 +1,28 @@
+name: PUBLIC ROTA 2.5.1 FRIENDLY CHAT ARTIFACT
+on:
+  push:
+    branches: [rotas-v251-temp-handoff]
+    paths:
+      - 'rotas-v251-public-trigger.txt'
+permissions:
+  contents: read
+jobs:
+  artifact:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Download signed Friendly APK
+        env:
+          URL_B64: aHR0cHM6Ly9yZWxlYXNlLWFzc2V0cy5naXRodWJ1c2VyY29udGVudC5jb20vZ2l0aHViLXByb2R1Y3Rpb24tcmVsZWFzZS1hc3NldC84NTAzNDk0MjEvMDM1MWRkODEtZjdiOC00YjQwLWFhMjQtODk2Y2UyMDJiYzhmP3NwPXImc3Y9MjAxOC0xMS0wOSZzcj1iJnNwcj1odHRwcyZzZT0yMDI2LTEwLTMwVDAwJTNBMDIlM0EwMFomcnNjZD1hdHRhY2htZW50JTNCK2ZpbGVuYW1lJTNEUk9UQV8yNTFfRlJJRU5ETFkuYXBrJnJzY3Q9YXBwbGljYXRpb24lMkZ2bmQuYW5kcm9pZC5wYWNrYWdlLWFyY2hpdmUmc2tvaWQ9OTZjMmQ0MTAtNTcxMS00M2ExLWFlZGQtYWIxOTQ3YWE3YWIwJnNrdGlkPTM5OGE2NjU0LTk5N2ItNDdlOS1iMTJiLTk1MTViODk2YjRkZSZza3Q9MjAyNi0xMC0yOVQyMyUzQTAxJTNBMDdaJnNrZT0yMDI2LTEwLTMwVDAwJTNBMDIlM0EwMFomc2tzPWImc2t2PTIwMTgtMTEtMDkmc2lnPW0xYW9xRTUxT2pTUTVJM1gya0VMclV3eENGekZSeERaV2ptb0QxbWpNNXclM0Qmand0PWV5SjBlWEFpT2lKS1YxUWlMQ0poYkdjaU9pSklVekkxTmlKOS5leUpwYzNNaU9pSm5hWFJvZFdJdVkyOXRJaXdpWVhWa0lqb2ljbVZzWldGelpTMWhjM05sZEhNdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRJaXdpYTJWNUlqb2lhMlY1TVNJc0ltVjRjQ0k2TVRjNU16TXhOemt4TWl3aWJtSm1Jam94Tnprek16RTJNVEV5TENKd1lYUm9Jam9pY21Wc1pXRnpaV0Z6YzJWMGNISnZaSFZqZEdsdmJpNWliRzlpTG1OdmNtVXVkMmx1Wkc5M2N5NXVaWFFpZlEuRTFteTNQdkx3X0ZvLUxKbFViaW9tSE1wSXZhOEpBb0V5TjJZdkl2dkE2SSZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWF0dGFjaG1lbnQlM0IlMjBmaWxlbmFtZSUzRFJPVEFfMjUxX0ZSSUVORExZLmFwayZyZXNwb25zZS1jb250ZW50LXR5cGU9YXBwbGljYXRpb24lMkZ2bmQuYW5kcm9pZC5wYWNrYWdlLWFyY2hpdmU=
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/apk
+          URL="$(printf '%s' "$URL_B64" | base64 -d)"
+          curl -fL --retry 3 --retry-delay 2 "$URL" -o /tmp/apk/ROTA_251_FRIENDLY.apk
+          echo 'd3407cc7b0385932c8dbd572bdb5d7598c2ae1f94368e6f4c7cb77af7a72a8bc  /tmp/apk/ROTA_251_FRIENDLY.apk' | sha256sum -c -
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ROTA-251-FRIENDLY-DIRECT
+          path: /tmp/apk/ROTA_251_FRIENDLY.apk
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 0
